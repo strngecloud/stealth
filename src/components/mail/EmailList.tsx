@@ -63,7 +63,7 @@ export function EmailList({
           return (
             <motion.li
               key={e.id}
-              initial={{ opacity: 0, y: 6 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.02, duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
             >
