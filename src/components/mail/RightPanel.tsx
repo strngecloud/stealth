@@ -11,10 +11,38 @@ import {
 } from "lucide-react";
 import type { Email } from "./data";
 
-export function RightPanel({ email, onShowToast }: { email: Email | null; onShowToast: (message: string) => void }) {
+export type ContextAction = "snooze" | "translate" | "schedule" | "summarize";
+
+export function RightPanel({
+  email,
+  onAction,
+  onDraftReply,
+}: {
+  email: Email | null;
+  onAction: (action: ContextAction, email: Email) => void;
+  onDraftReply: (email: Email, prompt: string) => void;
+}) {
+  const [prompt, setPrompt] = useState("");
+  const [summary, setSummary] = useState<string | null>(null);
+
+  const runAction = (action: ContextAction) => {
+    if (!email) return;
+    if (action === "summarize") {
+      setSummary(
+        `${email.from} is writing about ${email.subject.toLowerCase()}. The next step is to respond or review the attached context.`,
+      );
+    }
+    onAction(action, email);
+  };
+
+  const draftReply = () => {
+    if (!email || !prompt.trim()) return;
+    onDraftReply(email, prompt.trim());
+    setPrompt("");
+  };
+
   return (
     <aside className="scrollbar-thin m-3 ml-0 hidden h-[calc(100vh-1.5rem-3.5rem)] w-[292px] shrink-0 flex-col gap-3 overflow-y-auto 2xl:flex">
-      {/* AI Assistant */}
       <Card>
         <SectionHeader icon={Sparkles} title="AI assistant" badge="beta" />
         <div className="mt-3 rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-foreground/80">
