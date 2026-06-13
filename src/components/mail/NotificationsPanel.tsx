@@ -184,7 +184,13 @@ export function NotificationsPanel({
 
             {/* Footer */}
             <div className="border-t border-white/5 px-4 py-2">
-              <button className="w-full rounded-lg py-2 text-xs text-muted-foreground transition hover:bg-white/[0.04] hover:text-foreground">
+              <button
+                onClick={() => {
+                  onClose();
+                  onViewAll();
+                }}
+                className="w-full rounded-lg py-2 text-xs text-muted-foreground transition hover:bg-white/[0.04] hover:text-foreground"
+              >
                 View all notifications
               </button>
             </div>
@@ -192,6 +198,6 @@ export function NotificationsPanel({
         </>
       )}
     </AnimatePresence>,
-    document.body
+    document.body,
   );
 }
