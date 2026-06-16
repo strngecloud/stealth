@@ -75,6 +75,7 @@ function MailApp() {
       emails.forEach((email) => mailbox.messages.create(email as Email));
       if (emails.length > 0) setSelectedId(emails[0].id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mailbox.loadingState]);
 
   // Format messages with time for display
