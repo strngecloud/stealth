@@ -23,6 +23,13 @@ type VirtualMailFolder = "all" | "starred";
 
 export type MailLocation = Exclude<MailFolder, VirtualMailFolder>;
 
+/**
+ * Per-sender policy applied through the sender-conversion flow.
+ * `undefined` means the sender has never been converted (still "unknown").
+ * See src/features/sender-conversion.
+ */
+export type SenderPolicy = "allow" | "verify" | "block";
+
 export type Email = {
   id: string;
   from: string;
@@ -38,6 +45,7 @@ export type Email = {
   attachments?: { name: string; size: string; type: string }[];
   avatarColor: string;
   event?: MailEvent;
+  senderPolicy?: SenderPolicy;
 };
 
 export type MailFilters = {

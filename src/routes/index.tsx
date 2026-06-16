@@ -23,6 +23,13 @@ import { CalendarWorkspace, useCalendar } from "@/features/calendar";
 import { FeedbackViewport } from "@/features/design-system/feedback/feedback-viewport";
 import { useFeedback } from "@/features/design-system/feedback/use-feedback";
 import { OnboardingModal, draftToMailboxPolicy, type OnboardingDraft } from "@/features/onboarding";
+import {
+  SenderConversionDialog,
+  resolveSenderConversion,
+  useSenderConversion,
+  type SenderConversionTarget,
+  type SenderPolicyChoice,
+} from "@/features/sender-conversion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,6 +65,7 @@ function MailApp() {
   const [calendarEventId, setCalendarEventId] = useState<string | null>(null);
   const [calendarCreateRequest, setCalendarCreateRequest] = useState(0);
   const { preferences, setPreferences, hydrated } = usePreferences();
+  const senderConversion = useSenderConversion();
 
   // Gate: show onboarding only after localStorage has been read (hydrated) and only
   // when it has not been completed in a previous session.
@@ -122,6 +130,26 @@ function MailApp() {
     setComposeOpen(true);
   };
 
+  // Opening the flow is inert — it only puts the sender in focus. No policy
+  // changes until the user explicitly confirms a choice in the dialog.
+  const openSenderConversion = (e: Email) =>
+    senderConversion.open({
+      emailId: e.id,
+      sender: e.from,
+      address: e.email,
+      currentPolicy: e.senderPolicy,
+    });
+
+  // Single applicator: mutating the shared `emails` array re-renders every open
+  // surface (list, reader, sender card, sidebar counts) from one source of truth.
+  const handleConvertSender = (target: SenderConversionTarget, choice: SenderPolicyChoice) => {
+    const email = emails.find((item) => item.id === target.emailId);
+    if (!email) return;
+    const result = resolveSenderConversion(email, choice);
+    updateEmail(email.id, result.patch);
+    showToast(result.toast.message, { tone: result.toast.tone });
+  };
+
   const quoteBody = (e: Email) =>
     `\n\n---\nOn ${e.time}, ${e.from} <${e.email}> wrote:\n${e.body
       .split("\n")
@@ -166,14 +194,7 @@ function MailApp() {
       updateEmail(e.id, { starred: !e.starred });
       showToast(e.starred ? "Removed star" : "Starred");
     },
-    onApproveSender: (e: Email) => {
-      updateEmail(e.id, { folder: "verified" });
-      showToast(`${e.from} can now mail you`);
-    },
-    onBlockSender: (e: Email) => {
-      updateEmail(e.id, { folder: "spam" });
-      showToast(`${e.from} blocked and postage marked for refund`);
-    },
+    onConvertSender: openSenderConversion,
     onShowToast: showToast,
     onAddEvent: (e: Email) => {
       if (!e.event) return;
@@ -324,6 +345,7 @@ function MailApp() {
               emails={emails}
               selectedId={selectedId}
               onSelect={setSelectedId}
+              onConvertSender={openSenderConversion}
               folder={folder}
               filters={filters}
               customFolder={customFolder}
@@ -334,6 +356,7 @@ function MailApp() {
             <RightPanel
               email={selected}
               onAction={handleContextAction}
+              onConvertSender={openSenderConversion}
               calendarEvents={calendar.visibleEvents}
               calendars={calendar.calendars}
               onOpenCalendar={(eventId) => {
@@ -418,6 +441,12 @@ function MailApp() {
       <FeedbackViewport items={feedbackItems} onDismiss={dismissFeedback} />
 
       <OnboardingModal open={showOnboarding} onComplete={handleOnboardingComplete} />
+
+      <SenderConversionDialog
+        target={senderConversion.target}
+        onConfirm={handleConvertSender}
+        onClose={senderConversion.close}
+      />
     </div>
   );
 }
