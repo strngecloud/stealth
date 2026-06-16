@@ -1,5 +1,12 @@
 export const protocolManifest = {
   apiVersion: "v1",
+  supportedVersions: ["v1", "v2"],
+  mandatoryCapabilities: [
+    // mandatory caps that must be present in any peer
+    "mailbox-policy",
+    "sender-rules",
+    "policy-evaluation",
+  ],
   authentication: {
     actorHeader: "x-stealth-address",
     productionRequirement: "signed session or wallet challenge",
