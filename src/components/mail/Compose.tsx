@@ -65,6 +65,25 @@ export function Compose({
   const aiSuggestion =
     "Confirming Friday's review at 10am — let me know if that still works for you.";
 
+  const insertAtCursor = useCallback(
+    (text: string) => {
+      const textarea = textareaRef.current;
+      if (!textarea) return;
+
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const newValue = body.slice(0, start) + text + body.slice(end);
+      setBody(newValue);
+
+      // Set cursor position after inserted text
+      setTimeout(() => {
+        textarea.selectionStart = textarea.selectionEnd = start + text.length;
+        textarea.focus();
+      }, 0);
+    },
+    [body],
+  );
+
   // Hydrate / reset form when opening or closing
   useEffect(() => {
     if (open) {
@@ -102,25 +121,6 @@ export function Compose({
     if (open) window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [open, onClose, emojiOpen, insertAtCursor]);
-
-  const insertAtCursor = useCallback(
-    (text: string) => {
-      const textarea = textareaRef.current;
-      if (!textarea) return;
-
-      const start = textarea.selectionStart;
-      const end = textarea.selectionEnd;
-      const newValue = body.slice(0, start) + text + body.slice(end);
-      setBody(newValue);
-
-      // Set cursor position after inserted text
-      setTimeout(() => {
-        textarea.selectionStart = textarea.selectionEnd = start + text.length;
-        textarea.focus();
-      }, 0);
-    },
-    [body],
-  );
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>, type: "file" | "image") => {
     const files = e.target.files;

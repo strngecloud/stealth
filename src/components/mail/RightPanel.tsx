@@ -29,6 +29,7 @@ export function RightPanel({
   onSnooze,
   calendarEvents,
   calendars,
+  onShowToast,
   onOpenCalendar,
   onCreateEvent,
   onPreviewAttachment,
@@ -40,6 +41,7 @@ export function RightPanel({
   onSnooze: (email: Email) => void;
   calendarEvents: CalendarEvent[];
   calendars: CalendarDefinition[];
+  onShowToast?: (message: string) => void;
   onOpenCalendar: (eventId?: string) => void;
   onCreateEvent: () => void;
   onPreviewAttachment?: (attachment: { name: string; size: string; type: string }) => void;

@@ -50,6 +50,25 @@ export class MemoryApiRepository implements ApiRepository {
     return structuredClone(receipt);
   }
 
+  async getRelayQueueDepth(_relayId: string) {
+    return 0;
+  }
+
+  async getRelayRetryCount(_relayId: string) {
+    return 0;
+  }
+
+  async getRelayLastSuccessfulDelivery(_relayId: string) {
+    return null;
+  }
+
+  async getRelayLastFailedDelivery(_relayId: string) {
+    return null;
+  }
+
+  async getRelayDeadLetterCount(_relayId: string) {
+    return 0;
+  }
   async getCounter(key: string) {
     return this.counters.get(key)?.length ?? 0;
   }

@@ -109,11 +109,9 @@ export function Topbar({
   }, [filterOpen, accountOpen, helpOpen, notificationsOpen]);
 
   return (
-    <header className="glass relative z-50 m-0 flex h-14 items-center gap-2 rounded-none border-t-0 px-3">
+    <header className="glass relative z-50 m-0 flex h-14 items-center gap-2 overflow-hidden rounded-none border-t-0 px-3">
       <motion.div
-        animate={{ width: focused ? "min(34vw, 430px)" : "min(28vw, 360px)" }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="relative flex h-9 min-w-[170px] max-w-[430px] shrink-0 items-center sm:min-w-[230px]"
+        className="relative flex h-9 min-w-[220px] flex-[1_1_320px] items-center lg:max-w-[430px]"
       >
         <Search className="pointer-events-none absolute left-3 h-4 w-4 text-muted-foreground" />
         <input
@@ -121,7 +119,7 @@ export function Topbar({
           onBlur={() => setFocused(false)}
           onClick={onOpenPalette}
           placeholder="Search messages, people, proofs, attachments..."
-          className="glow-ring h-9 w-full rounded-md border border-white/[0.07] bg-white/[0.035] pl-9 pr-20 text-[13px] text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] placeholder:text-muted-foreground/70 transition focus:bg-white/[0.06]"
+          className="glow-ring h-9 w-full min-w-0 rounded-md border border-white/[0.07] bg-white/[0.035] pl-9 pr-14 text-[13px] text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.045)] placeholder:text-muted-foreground/70 transition focus:bg-white/[0.06]"
         />
         <button
           onClick={onOpenPalette}
@@ -131,7 +129,7 @@ export function Topbar({
         </button>
       </motion.div>
 
-      <div className="hidden items-center gap-1.5 lg:flex">
+      <div className="hidden shrink-0 items-center gap-1.5 xl:flex">
         {quickActions.map((action) => (
           <QuickAction
             key={action.label}
@@ -141,7 +139,7 @@ export function Topbar({
         ))}
       </div>
 
-      <div className="glass-tile ml-auto flex items-center gap-1 rounded-[8px] px-1">
+      <div className="glass-tile ml-auto flex shrink-0 items-center gap-1 rounded-[8px] px-1">
         {/* Filter dropdown */}
         <div ref={filterRef} className="relative">
           <IconBtn
@@ -353,7 +351,7 @@ export function Topbar({
               className="h-5 w-5 rounded-full"
               style={{ background: "linear-gradient(135deg,#7a8290,#2b2b31)" }}
             />
-            <span className="hidden sm:inline">
+            <span className="hidden xl:inline">
               {account === "personal" ? "Personal" : "Protocol"}
             </span>
           </button>
@@ -513,7 +511,7 @@ function QuickAction({
       className="group glass-tile flex h-9 items-center gap-2 rounded-[6px] px-2.5 text-xs text-muted-foreground transition hover:text-foreground"
     >
       <Icon className="h-4 w-4" />
-      <span className="hidden lg:inline">{label}</span>
+      <span className="hidden 2xl:inline">{label}</span>
       <span className="rounded-[4px] border border-white/[0.08] bg-black/20 px-1.5 py-0.5 font-mono text-[10px] text-foreground/80">
         {value}
       </span>

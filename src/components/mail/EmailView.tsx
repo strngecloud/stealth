@@ -105,10 +105,12 @@ export function EmailView({
             transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
             className="flex h-full flex-col"
           >
-            <div className="grid grid-cols-[minmax(180px,280px)_1fr_auto] items-center gap-3 border-b border-white/5 px-4 py-2.5">
-              <SenderIdentity email={email} compact />
+            <div className="flex flex-wrap items-center gap-2 border-b border-white/5 px-4 py-2.5">
+              <div className="min-w-[220px] flex-1">
+                <SenderIdentity email={email} compact />
+              </div>
 
-              <div className="flex min-w-0 items-center justify-center gap-1">
+              <div className="order-3 flex w-full min-w-0 items-center justify-center gap-1 md:order-none md:w-auto md:flex-none">
                 <div className="relative">
                   <motion.button
                     key="reply"
@@ -116,7 +118,7 @@ export function EmailView({
                     whileHover={{ y: -1 }}
                     onClick={() => setReplyMenuOpen((open) => !open)}
                     className={cn(
-                      "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition",
+                      "flex items-center gap-1.5 whitespace-nowrap rounded-md px-2.5 py-1.5 text-xs transition",
                       replyMenuOpen
                         ? "bg-white/[0.08] text-foreground"
                         : "text-muted-foreground hover:bg-white/[0.06] hover:text-foreground",
@@ -183,21 +185,21 @@ export function EmailView({
                       else if (label === "Forward") setInlineMode("forward");
                       else onClick();
                     }}
-                    className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition hover:bg-white/[0.06] hover:text-foreground"
+                    className="flex items-center gap-1.5 whitespace-nowrap rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition hover:bg-white/[0.06] hover:text-foreground"
                   >
                     <Icon className="h-3.5 w-3.5" />{" "}
-                    <span className="hidden sm:inline">{label}</span>
+                    <span className="hidden 2xl:inline">{label}</span>
                   </motion.button>
                 ))}
               </div>
 
-              <div className="flex items-center justify-end gap-1">
+              <div className="ml-auto flex flex-none items-center justify-end gap-1">
                 {actions.onConvertSender && (
                   <ConvertSenderButton
                     variant="ghost"
                     label={email.senderPolicy ? "Sender" : "Add sender"}
                     onClick={() => actions.onConvertSender?.(email)}
-                    className="hidden sm:inline-flex"
+                    className="hidden whitespace-nowrap 2xl:inline-flex"
                   />
                 )}
                 {actions.onSnooze && (
@@ -224,7 +226,7 @@ export function EmailView({
                   whileTap={{ scale: 0.9 }}
                   onClick={() => actions.onTrash?.(email)}
                   title="Move to trash"
-                  className="rounded-md p-2 text-muted-foreground transition hover:bg-white/[0.06] hover:text-foreground"
+                  className="shrink-0 rounded-md p-2 text-muted-foreground transition hover:bg-white/[0.06] hover:text-foreground"
                 >
                   <Trash2 className="h-4 w-4" />
                 </motion.button>
@@ -233,7 +235,7 @@ export function EmailView({
                   onClick={() => actions.onToggleStar?.(email)}
                   title={email.starred ? "Unstar" : "Star"}
                   className={cn(
-                    "rounded-md p-2 transition hover:bg-white/[0.06]",
+                    "shrink-0 rounded-md p-2 transition hover:bg-white/[0.06]",
                     email.starred
                       ? "text-amber-300"
                       : "text-muted-foreground hover:text-foreground",
