@@ -256,19 +256,18 @@ export function ProofInspectorModal({
                           : "border-white/10 focus:border-white/20",
                       )}
                     />
-                    {query &&
-                      ((
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setQuery("");
-                            setHasSearched(false);
-                          }}
-                          className="absolute right-3 top-3 rounded p-0.5 text-muted-foreground hover:text-foreground"
-                        >
-                          <X className="h-3.5 w-3.5" />
-                        </button>
-                      ) as any)}
+                    {query && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuery("");
+                          setHasSearched(false);
+                        }}
+                        className="absolute right-3 top-3 rounded p-0.5 text-muted-foreground hover:text-foreground"
+                      >
+                        <X className="h-3.5 w-3.5" />
+                      </button>
+                    )}
                   </div>
                   <button
                     type="submit"
