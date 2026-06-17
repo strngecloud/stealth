@@ -1,0 +1,267 @@
+
+/* /src/features/calendar/styles.css */
+.event-mail-hero {
+  contain: paint;
+  isolation: isolate;
+  background:
+    radial-gradient(520px 240px at 24% 16%, oklch(0.72 0.006 270 / 0.32), transparent 66%),
+    radial-gradient(520px 260px at 76% 8%, oklch(0.45 0.006 270 / 0.22), transparent 68%),
+    linear-gradient(
+      122deg,
+      oklch(0.52 0.005 270 / 0.92),
+      oklch(0.22 0.005 270 / 0.96) 48%,
+      oklch(0.15 0.005 270 / 0.98)
+    );
+}
+
+.event-mail-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, oklch(1 0 0 / 0.16), transparent 28%),
+    radial-gradient(700px 180px at 50% 116%, oklch(0 0 0 / 0.72), transparent 66%);
+  pointer-events: none;
+}
+
+.event-mail-ridges {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -60px;
+  height: 142px;
+  transform: rotate(-1.5deg) skewX(-14deg);
+  transform-origin: center bottom;
+  background: repeating-linear-gradient(
+    100deg,
+    oklch(1 0 0 / 0.42) 0 1px,
+    oklch(0.16 0.004 270 / 0.98) 1px 9px,
+    oklch(0 0 0 / 0.98) 9px 15px
+  );
+  border-top: 1px solid oklch(1 0 0 / 0.18);
+  box-shadow:
+    0 -24px 42px -26px oklch(1 0 0 / 0.45),
+    0 -10px 30px oklch(0 0 0 / 0.7) inset;
+}
+
+.event-mail-ridges::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    oklch(0 0 0 / 0.58),
+    transparent 28%,
+    transparent 68%,
+    oklch(0 0 0 / 0.72)
+  );
+}
+
+.event-calendar-card {
+  background:
+    linear-gradient(145deg, oklch(1 0 0 / 0.2), oklch(1 0 0 / 0.075) 40%, oklch(0 0 0 / 0.24)),
+    oklch(0.21 0.005 270 / 0.5);
+  backdrop-filter: blur(28px) saturate(145%);
+  -webkit-backdrop-filter: blur(28px) saturate(145%);
+}
+
+.calendar-workspace {
+  background:
+    radial-gradient(900px 520px at 8% 0%, oklch(0.52 0.018 260 / 0.14), transparent 60%),
+    radial-gradient(760px 480px at 100% 100%, oklch(0.38 0.018 200 / 0.12), transparent 62%),
+    oklch(0.145 0.006 270 / 0.98);
+  box-shadow:
+    0 48px 120px -36px oklch(0 0 0 / 0.9),
+    inset 0 1px 0 oklch(1 0 0 / 0.08);
+}
+
+.calendar-picker {
+  --cell-size: 2.05rem;
+  background: oklch(1 0 0 / 0.025);
+}
+
+.calendar-editor {
+  background:
+    radial-gradient(620px 300px at 10% 0%, oklch(0.5 0.018 260 / 0.14), transparent 60%),
+    oklch(0.17 0.006 270 / 0.98);
+}
+
+.calendar-control,
+.calendar-primary-button,
+.calendar-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid oklch(1 0 0 / 0.1);
+  border-radius: 0.55rem;
+  min-height: 2.1rem;
+  padding: 0 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.calendar-control {
+  color: oklch(0.76 0.008 270);
+  background: oklch(1 0 0 / 0.035);
+}
+
+.calendar-control:hover,
+.calendar-icon-button:hover {
+  color: var(--foreground);
+  border-color: oklch(1 0 0 / 0.18);
+  background: oklch(1 0 0 / 0.075);
+}
+
+.calendar-primary-button {
+  color: oklch(0.16 0.006 270);
+  background: oklch(0.94 0.005 270);
+}
+
+.calendar-primary-button:hover {
+  transform: translateY(-1px);
+  background: white;
+}
+
+.calendar-primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
+.calendar-icon-button {
+  width: 2.1rem;
+  padding: 0;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.calendar-input {
+  width: 100%;
+  height: 2.5rem;
+  border: 1px solid oklch(1 0 0 / 0.1);
+  border-radius: 0.6rem;
+  background: oklch(0 0 0 / 0.18);
+  padding: 0 0.75rem;
+  color: var(--foreground);
+  font-size: 0.75rem;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.calendar-input:focus {
+  border-color: oklch(1 0 0 / 0.24);
+  box-shadow: 0 0 0 3px oklch(1 0 0 / 0.06);
+}
+
+:root[data-theme="light"] .calendar-workspace,
+:root[data-theme="light"] .calendar-editor {
+  background:
+    radial-gradient(760px 420px at 0% 0%, oklch(0.86 0.035 255 / 0.65), transparent 62%),
+    oklch(0.98 0.004 270 / 0.98);
+}
+
+:root[data-theme="light"] .calendar-primary-button {
+  color: white;
+  background: oklch(0.22 0.008 270);
+}
+
+
+/* /src/features/otp/styles.css */
+.otp-scene {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(820px 260px at 18% 12%, oklch(0.78 0.006 270 / 0.16), transparent 58%),
+    radial-gradient(720px 240px at 78% 18%, oklch(0.58 0.006 270 / 0.12), transparent 62%),
+    linear-gradient(132deg, oklch(0.11 0.004 270), oklch(0.18 0.005 270) 46%, oklch(0.09 0.004 270));
+  border: 1px solid oklch(1 0 0 / 0.08);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.08),
+    inset 0 -1px 0 oklch(0 0 0 / 0.5),
+    0 26px 70px -44px oklch(0 0 0 / 0.9);
+}
+
+.otp-scene::before,
+.otp-scene::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.otp-scene::before {
+  background: repeating-linear-gradient(
+    154deg,
+    transparent 0 34px,
+    oklch(1 0 0 / 0.055) 36px 38px,
+    transparent 42px 78px
+  );
+  filter: blur(1px);
+  opacity: 0.78;
+  transform: rotate(-7deg) translateY(-10%);
+}
+
+.otp-scene::after {
+  background:
+    radial-gradient(520px 160px at 12% 8%, oklch(1 0 0 / 0.14), transparent 68%),
+    radial-gradient(420px 180px at 84% 22%, oklch(1 0 0 / 0.08), transparent 72%),
+    linear-gradient(105deg, transparent 0 30%, oklch(1 0 0 / 0.05) 42%, transparent 58%);
+  filter: blur(18px);
+  opacity: 0.9;
+}
+
+.otp-card {
+  background:
+    radial-gradient(120% 70% at 50% 0%, oklch(0.32 0.005 270 / 0.55), transparent 55%),
+    linear-gradient(180deg, oklch(0.14 0.005 270 / 0.86), oklch(0.08 0.005 270 / 0.88));
+  border: 1px solid oklch(1 0 0 / 0.08);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  box-shadow:
+    0 30px 60px -22px oklch(0 0 0 / 0.8),
+    0 10px 28px oklch(0 0 0 / 0.5),
+    inset 0 1px 0 oklch(1 0 0 / 0.1),
+    inset 0 -1px 0 oklch(0 0 0 / 0.5);
+}
+
+.otp-digit {
+  background: linear-gradient(180deg, oklch(0.2 0.005 270), oklch(0.13 0.005 270));
+  border: 1px solid oklch(1 0 0 / 0.09);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.1),
+    inset 0 -1px 0 oklch(0 0 0 / 0.55),
+    0 4px 10px oklch(0 0 0 / 0.45);
+}
+
+.otp-copy-btn {
+  background: linear-gradient(180deg, oklch(0.96 0.005 270), oklch(0.78 0.005 270));
+  color: oklch(0.16 0.005 270);
+  border: 1px solid oklch(1 0 0 / 0.4);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.7),
+    inset 0 -1px 0 oklch(0 0 0 / 0.2),
+    0 8px 20px oklch(0 0 0 / 0.45);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.otp-copy-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.otp-copy-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.96);
+}

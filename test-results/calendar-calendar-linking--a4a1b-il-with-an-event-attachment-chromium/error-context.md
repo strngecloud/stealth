@@ -214,232 +214,225 @@ Call log:
             - listitem [ref=e270]:
               - generic [ref=e271]:
                 - checkbox "Select all visible messages" [ref=e272]
-                - checkbox
                 - button "Select all" [ref=e273]
                 - generic [ref=e274]: 9 conversations
                 - generic [ref=e275]: Ctrl/⌘+A · Esc
             - listitem [ref=e276]:
               - generic [ref=e277]:
                 - 'checkbox "Select Lina Park: Q2 brand system - final direction" [ref=e278]'
-                - checkbox
                 - button "Lina Park Lina Park Verified 9:42 AM Q2 brand system - final direction" [ref=e279]:
                   - img "Lina Park" [ref=e281]
-                  - generic [ref=e283]:
-                    - generic [ref=e284]:
-                      - generic [ref=e285]:
-                        - generic [ref=e286]: Lina Park
-                        - generic [ref=e288]:
-                          - img [ref=e289]
-                          - generic [ref=e292]: Verified
-                      - generic [ref=e293]: 9:42 AM
-                    - generic [ref=e294]: Q2 brand system - final direction
-            - listitem [ref=e295]:
-              - generic [ref=e296]:
-                - 'checkbox "Select TOKEN2049 Abu Dhabi: TOKEN2049 Abu Dhabi - founder pass ready" [ref=e297]'
-                - checkbox
-                - button "TOKEN2049 Abu Dhabi TOKEN2049 Abu Dhabi Verified 9:18 AM TOKEN2049 Abu Dhabi - founder pass ready" [active] [ref=e298]:
-                  - img "TOKEN2049 Abu Dhabi" [ref=e300]
-                  - generic [ref=e302]:
-                    - generic [ref=e303]:
-                      - generic [ref=e304]:
-                        - generic [ref=e305]: TOKEN2049 Abu Dhabi
-                        - generic [ref=e307]:
-                          - img [ref=e308]
-                          - generic [ref=e311]: Verified
-                      - generic [ref=e312]: 9:18 AM
-                    - generic [ref=e313]: TOKEN2049 Abu Dhabi - founder pass ready
-            - listitem [ref=e314]:
-              - generic [ref=e315]:
-                - 'checkbox "Select Relay Node 07: Your relay verification code" [ref=e316]'
-                - checkbox
-                - button "Relay Node 07 Relay Node 07 Unknown 8:57 AM Your relay verification code" [ref=e317]:
-                  - img "Relay Node 07" [ref=e319]
-                  - generic [ref=e321]:
-                    - generic [ref=e322]:
-                      - generic [ref=e323]:
-                        - generic [ref=e324]: Relay Node 07
-                        - generic [ref=e326]:
-                          - img [ref=e327]
-                          - generic [ref=e330]: Unknown
-                      - generic [ref=e331]: 8:57 AM
-                    - generic [ref=e332]: Your relay verification code
-            - listitem [ref=e333]:
-              - generic [ref=e334]:
-                - 'checkbox "Select Uthaimin Lawal: Investor update and postage policy" [ref=e335]'
-                - checkbox
-                - button "Uthaimin Lawal Uthaimin Lawal Unknown 8:23 AM Investor update and postage policy" [ref=e336]:
-                  - img "Uthaimin Lawal" [ref=e338]
-                  - generic [ref=e339]:
-                    - generic [ref=e340]:
-                      - generic [ref=e341]:
-                        - generic [ref=e342]: Uthaimin Lawal
-                        - generic [ref=e344]:
-                          - img [ref=e345]
-                          - generic [ref=e348]: Unknown
-                      - generic [ref=e349]: 8:23 AM
-                    - generic [ref=e350]: Investor update and postage policy
-            - listitem [ref=e351]:
-              - generic [ref=e352]:
-                - 'checkbox "Select Unknown Sender: Message request awaiting approval" [ref=e353]'
-                - checkbox
-                - button "Unknown Sender Unknown Sender Paid 7:48 AM Message request awaiting approval" [ref=e354]:
-                  - img "Unknown Sender" [ref=e356]
-                  - generic [ref=e358]:
-                    - generic [ref=e359]:
-                      - generic [ref=e360]:
-                        - generic [ref=e361]: Unknown Sender
-                        - generic [ref=e363]:
-                          - img [ref=e364]
-                          - generic [ref=e367]: Paid
-                      - generic [ref=e368]: 7:48 AM
-                    - generic [ref=e369]: Message request awaiting approval
-              - button "Review sender" [ref=e371]:
-                - img [ref=e372]
-                - generic [ref=e375]: Review sender
-            - listitem [ref=e376]:
-              - generic [ref=e377]:
-                - 'checkbox "Select Stellar Fund: Grant application review" [ref=e378]'
-                - checkbox
-                - button "Stellar Fund Stellar Fund Verified Yesterday Grant application review" [ref=e379]:
-                  - img "Stellar Fund" [ref=e381]
-                  - generic [ref=e383]:
-                    - generic [ref=e384]:
-                      - generic [ref=e385]:
-                        - generic [ref=e386]: Stellar Fund
-                        - generic [ref=e388]:
-                          - img [ref=e389]
-                          - generic [ref=e392]: Verified
-                      - generic [ref=e393]: Yesterday
-                    - generic [ref=e394]: Grant application review
-              - button "Review sender" [ref=e396]:
-                - img [ref=e397]
-                - generic [ref=e400]: Review sender
-            - listitem [ref=e401]:
-              - generic [ref=e402]:
-                - 'checkbox "Select Anonymous Trader: OTC offer for STEALTH tokens" [ref=e403]'
-                - checkbox
-                - button "Anonymous Trader Anonymous Trader Paid Yesterday OTC offer for STEALTH tokens" [ref=e404]:
-                  - img "Anonymous Trader" [ref=e406]
-                  - generic [ref=e408]:
-                    - generic [ref=e409]:
-                      - generic [ref=e410]:
-                        - generic [ref=e411]: Anonymous Trader
-                        - generic [ref=e413]:
-                          - img [ref=e414]
-                          - generic [ref=e417]: Paid
-                      - generic [ref=e418]: Yesterday
-                    - generic [ref=e419]: OTC offer for STEALTH tokens
-              - button "Review sender" [ref=e421]:
-                - img [ref=e422]
-                - generic [ref=e425]: Review sender
-            - listitem [ref=e426]:
-              - generic [ref=e427]:
-                - 'checkbox "Select Nadia Reyes: Encrypted payload test" [ref=e428]'
-                - checkbox
-                - button "Nadia Reyes Nadia Reyes Verified Yesterday Encrypted payload test" [ref=e429]:
-                  - img "Nadia Reyes" [ref=e431]
-                  - generic [ref=e432]:
-                    - generic [ref=e433]:
-                      - generic [ref=e434]:
-                        - generic [ref=e435]: Nadia Reyes
-                        - generic [ref=e437]:
-                          - img [ref=e438]
-                          - generic [ref=e441]: Verified
-                      - generic [ref=e442]: Yesterday
-                    - generic [ref=e443]: Encrypted payload test
-            - listitem [ref=e444]:
-              - generic [ref=e445]:
-                - 'checkbox "Select Stealth Security: Your sign-in passkey" [ref=e446]'
-                - checkbox
-                - button "Stealth Security Stealth Security Unknown Just now Your sign-in passkey" [ref=e447]:
-                  - img "Stealth Security" [ref=e449]
-                  - generic [ref=e451]:
-                    - generic [ref=e452]:
-                      - generic [ref=e453]:
-                        - generic [ref=e454]: Stealth Security
-                        - generic [ref=e456]:
-                          - img [ref=e457]
-                          - generic [ref=e460]: Unknown
-                      - generic [ref=e461]: Just now
-                    - generic [ref=e462]: Your sign-in passkey
-        - separator [ref=e463]:
-          - img [ref=e465]
-        - generic [ref=e475]:
-          - generic [ref=e476]:
-            - generic [ref=e478]:
-              - generic [ref=e479]: LP
-              - generic [ref=e480]:
-                - generic [ref=e481]:
-                  - generic [ref=e482]: Lina Park
-                  - generic [ref=e484]:
-                    - img [ref=e485]
+                  - generic [ref=e282]:
+                    - generic [ref=e283]:
+                      - generic [ref=e284]:
+                        - generic [ref=e285]: Lina Park
+                        - generic [ref=e287]:
+                          - img [ref=e288]
+                          - generic [ref=e291]: Verified
+                      - generic [ref=e292]: 9:42 AM
+                    - generic [ref=e293]: Q2 brand system - final direction
+            - listitem [ref=e294]:
+              - generic [ref=e295]:
+                - 'checkbox "Select TOKEN2049 Abu Dhabi: TOKEN2049 Abu Dhabi - founder pass ready" [ref=e296]'
+                - button "TOKEN2049 Abu Dhabi TOKEN2049 Abu Dhabi Verified 9:18 AM TOKEN2049 Abu Dhabi - founder pass ready" [active] [ref=e297]:
+                  - img "TOKEN2049 Abu Dhabi" [ref=e299]
+                  - generic [ref=e301]:
+                    - generic [ref=e302]:
+                      - generic [ref=e303]:
+                        - generic [ref=e304]: TOKEN2049 Abu Dhabi
+                        - generic [ref=e306]:
+                          - img [ref=e307]
+                          - generic [ref=e310]: Verified
+                      - generic [ref=e311]: 9:18 AM
+                    - generic [ref=e312]: TOKEN2049 Abu Dhabi - founder pass ready
+            - listitem [ref=e313]:
+              - generic [ref=e314]:
+                - 'checkbox "Select Relay Node 07: Your relay verification code" [ref=e315]'
+                - button "Relay Node 07 Relay Node 07 Unknown 8:57 AM Your relay verification code" [ref=e316]:
+                  - img "Relay Node 07" [ref=e318]
+                  - generic [ref=e320]:
+                    - generic [ref=e321]:
+                      - generic [ref=e322]:
+                        - generic [ref=e323]: Relay Node 07
+                        - generic [ref=e325]:
+                          - img [ref=e326]
+                          - generic [ref=e329]: Unknown
+                      - generic [ref=e330]: 8:57 AM
+                    - generic [ref=e331]: Your relay verification code
+            - listitem [ref=e332]:
+              - generic [ref=e333]:
+                - 'checkbox "Select Uthaimin Lawal: Investor update and postage policy" [ref=e334]'
+                - button "Uthaimin Lawal Uthaimin Lawal Unknown 8:23 AM Investor update and postage policy" [ref=e335]:
+                  - img "Uthaimin Lawal" [ref=e337]
+                  - generic [ref=e338]:
+                    - generic [ref=e339]:
+                      - generic [ref=e340]:
+                        - generic [ref=e341]: Uthaimin Lawal
+                        - generic [ref=e343]:
+                          - img [ref=e344]
+                          - generic [ref=e347]: Unknown
+                      - generic [ref=e348]: 8:23 AM
+                    - generic [ref=e349]: Investor update and postage policy
+            - listitem [ref=e350]:
+              - generic [ref=e351]:
+                - 'checkbox "Select Unknown Sender: Message request awaiting approval" [ref=e352]'
+                - button "Unknown Sender Unknown Sender Paid 7:48 AM Message request awaiting approval" [ref=e353]:
+                  - img "Unknown Sender" [ref=e355]
+                  - generic [ref=e357]:
+                    - generic [ref=e358]:
+                      - generic [ref=e359]:
+                        - generic [ref=e360]: Unknown Sender
+                        - generic [ref=e362]:
+                          - img [ref=e363]
+                          - generic [ref=e366]: Paid
+                      - generic [ref=e367]: 7:48 AM
+                    - generic [ref=e368]: Message request awaiting approval
+              - button "Review sender" [ref=e370]:
+                - img [ref=e371]
+                - generic [ref=e374]: Review sender
+            - listitem [ref=e375]:
+              - generic [ref=e376]:
+                - 'checkbox "Select Stellar Fund: Grant application review" [ref=e377]'
+                - button "Stellar Fund Stellar Fund Verified Yesterday Grant application review" [ref=e378]:
+                  - img "Stellar Fund" [ref=e380]
+                  - generic [ref=e382]:
+                    - generic [ref=e383]:
+                      - generic [ref=e384]:
+                        - generic [ref=e385]: Stellar Fund
+                        - generic [ref=e387]:
+                          - img [ref=e388]
+                          - generic [ref=e391]: Verified
+                      - generic [ref=e392]: Yesterday
+                    - generic [ref=e393]: Grant application review
+              - button "Review sender" [ref=e395]:
+                - img [ref=e396]
+                - generic [ref=e399]: Review sender
+            - listitem [ref=e400]:
+              - generic [ref=e401]:
+                - 'checkbox "Select Anonymous Trader: OTC offer for STEALTH tokens" [ref=e402]'
+                - button "Anonymous Trader Anonymous Trader Paid Yesterday OTC offer for STEALTH tokens" [ref=e403]:
+                  - img "Anonymous Trader" [ref=e405]
+                  - generic [ref=e407]:
+                    - generic [ref=e408]:
+                      - generic [ref=e409]:
+                        - generic [ref=e410]: Anonymous Trader
+                        - generic [ref=e412]:
+                          - img [ref=e413]
+                          - generic [ref=e416]: Paid
+                      - generic [ref=e417]: Yesterday
+                    - generic [ref=e418]: OTC offer for STEALTH tokens
+              - button "Review sender" [ref=e420]:
+                - img [ref=e421]
+                - generic [ref=e424]: Review sender
+            - listitem [ref=e425]:
+              - generic [ref=e426]:
+                - 'checkbox "Select Nadia Reyes: Encrypted payload test" [ref=e427]'
+                - button "Nadia Reyes Nadia Reyes Verified Yesterday Encrypted payload test" [ref=e428]:
+                  - img "Nadia Reyes" [ref=e430]
+                  - generic [ref=e431]:
+                    - generic [ref=e432]:
+                      - generic [ref=e433]:
+                        - generic [ref=e434]: Nadia Reyes
+                        - generic [ref=e436]:
+                          - img [ref=e437]
+                          - generic [ref=e440]: Verified
+                      - generic [ref=e441]: Yesterday
+                    - generic [ref=e442]: Encrypted payload test
+            - listitem [ref=e443]:
+              - generic [ref=e444]:
+                - 'checkbox "Select Stealth Security: Your sign-in passkey" [ref=e445]'
+                - button "Stealth Security Stealth Security Unknown Just now Your sign-in passkey" [ref=e446]:
+                  - img "Stealth Security" [ref=e448]
+                  - generic [ref=e450]:
+                    - generic [ref=e451]:
+                      - generic [ref=e452]:
+                        - generic [ref=e453]: Stealth Security
+                        - generic [ref=e455]:
+                          - img [ref=e456]
+                          - generic [ref=e459]: Unknown
+                      - generic [ref=e460]: Just now
+                    - generic [ref=e461]: Your sign-in passkey
+        - separator [ref=e462]:
+          - img [ref=e464]
+        - generic [ref=e474]:
+          - generic [ref=e475]:
+            - generic [ref=e477]:
+              - generic [ref=e478]: LP
+              - generic [ref=e479]:
+                - generic [ref=e480]:
+                  - generic [ref=e481]: Lina Park
+                  - generic [ref=e483]:
+                    - img [ref=e484]
                     - text: Verified
-                - generic [ref=e488]: lina*vantage.studio
-            - generic [ref=e489]:
-              - button "Reply" [ref=e491]:
-                - img [ref=e492]
-                - generic [ref=e495]: Reply
-              - button [ref=e496]:
-                - img [ref=e497]
-              - button [ref=e501]:
-                - img [ref=e502]
-            - generic [ref=e505]:
-              - button "Z" [ref=e506]:
-                - img [ref=e507]
-                - generic [ref=e510]: Z
-              - button "E" [ref=e511]:
-                - img [ref=e512]
-                - generic [ref=e515]: E
-              - button "Move to trash" [ref=e516]:
-                - img [ref=e517]
-              - button "Unstar" [ref=e520]:
-                - img [ref=e521]
-          - generic [ref=e523]:
-            - article:
-              - generic:
-                - generic:
-                  - paragraph: Conversation
-                  - heading "Q2 brand system - final direction" [level=1]
-                  - generic:
-                    - generic [ref=e524]: Design
-                    - generic [ref=e525]: Priority
-              - generic [ref=e526]:
-                - generic [ref=e529]: Stellar identity verified
-                - generic [ref=e530]: 01c7...9a9
-                - generic [ref=e531]:
-                  - button "Inspect provenance" [ref=e532]
-                  - button "Copy proof" [ref=e533]
-              - generic [ref=e537]: Read receipt sent
-              - generic:
-                - paragraph: Hey,
-                - paragraph: Sharing the refined exploration for the new identity. The monochrome system feels strongest across product surfaces. I've attached the latest spec sheet and the motion principles deck.
-                - paragraph: Let me know your thoughts before Friday's review.
-                - paragraph: Lina
-              - generic:
-                - generic: 4 attachments
-                - generic:
-                  - generic [ref=e539] [cursor=pointer]:
-                    - img [ref=e541]
-                    - generic:
-                      - generic: vantage-identity-v3.pdf
-                      - generic: 4.2 MB
-                  - generic [ref=e544] [cursor=pointer]:
-                    - img [ref=e546]
-                    - generic:
-                      - generic: brand-moodboard.png
-                      - generic: 1.8 MB
-                  - generic [ref=e550] [cursor=pointer]:
-                    - img [ref=e552]
-                    - generic:
-                      - generic: release-notes.txt
-                      - generic: 1.2 KB
-                  - generic [ref=e555] [cursor=pointer]:
-                    - img [ref=e557]
-                    - generic:
-                      - generic: motion-principles.key
-                      - generic: 12.1 MB
-        - separator [ref=e560]:
-          - img [ref=e562]
+                - generic [ref=e487]: lina*vantage.studio
+            - generic [ref=e488]:
+              - button "Reply" [ref=e490]:
+                - img [ref=e491]
+                - generic [ref=e494]: Reply
+              - button [ref=e495]:
+                - img [ref=e496]
+              - button [ref=e500]:
+                - img [ref=e501]
+            - generic [ref=e504]:
+              - button "Z" [ref=e505]:
+                - img [ref=e506]
+                - generic [ref=e509]: Z
+              - button "E" [ref=e510]:
+                - img [ref=e511]
+                - generic [ref=e514]: E
+              - button "Move to trash" [ref=e515]:
+                - img [ref=e516]
+              - button "Unstar" [ref=e519]:
+                - img [ref=e520]
+          - article [ref=e523]:
+            - generic [ref=e525]:
+              - paragraph [ref=e526]: Conversation
+              - heading "Q2 brand system - final direction" [level=1] [ref=e527]
+              - generic [ref=e528]:
+                - generic [ref=e529]: Design
+                - generic [ref=e530]: Priority
+            - generic [ref=e531]:
+              - img [ref=e532]
+              - generic [ref=e535]: Stellar identity verified
+              - generic [ref=e536]: 01c7...9a9
+              - generic [ref=e537]:
+                - button "Inspect provenance" [ref=e538]
+                - button "Copy proof" [ref=e539]
+            - generic [ref=e540]:
+              - img [ref=e541]
+              - generic [ref=e544]: Read receipt sent
+            - generic [ref=e545]:
+              - paragraph [ref=e546]: Hey,
+              - paragraph [ref=e547]: Sharing the refined exploration for the new identity. The monochrome system feels strongest across product surfaces. I've attached the latest spec sheet and the motion principles deck.
+              - paragraph [ref=e548]: Let me know your thoughts before Friday's review.
+              - paragraph [ref=e549]: Lina
+            - generic [ref=e550]:
+              - generic [ref=e551]:
+                - img [ref=e552]
+                - text: 4 attachments
+              - generic [ref=e554]:
+                - generic [ref=e555] [cursor=pointer]:
+                  - img [ref=e557]
+                  - generic [ref=e560]:
+                    - generic [ref=e561]: vantage-identity-v3.pdf
+                    - generic [ref=e562]: 4.2 MB
+                - generic [ref=e563] [cursor=pointer]:
+                  - img [ref=e565]
+                  - generic [ref=e569]:
+                    - generic [ref=e570]: brand-moodboard.png
+                    - generic [ref=e571]: 1.8 MB
+                - generic [ref=e572] [cursor=pointer]:
+                  - img [ref=e574]
+                  - generic [ref=e577]:
+                    - generic [ref=e578]: release-notes.txt
+                    - generic [ref=e579]: 1.2 KB
+                - generic [ref=e580] [cursor=pointer]:
+                  - img [ref=e582]
+                  - generic [ref=e585]:
+                    - generic [ref=e586]: motion-principles.key
+                    - generic [ref=e587]: 12.1 MB
+        - separator [ref=e589]:
+          - img [ref=e591]
 ```
 
 # Test source

@@ -619,7 +619,6 @@ function MailApp({ isDemoMode }: { isDemoMode?: boolean }) {
           if (isMobile) return;
           setLayout({
             sidebarWidth: sizes[0],
-            listWidth: sizes[1], // This might be wrong if nested, but I'll nest them for better control
           });
         }}
       >
