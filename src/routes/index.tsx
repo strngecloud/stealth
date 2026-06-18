@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { BulkConfirmDialog } from "@/components/mail/BulkConfirmDialog";
 import { Sidebar } from "@/components/mail/Sidebar";
 import { Topbar } from "@/components/mail/Topbar";
+import { BottomNavigation } from "@/components/mail/BottomNavigation";
 import { EmailList } from "@/components/mail/EmailList";
 import { EmailView } from "@/components/mail/EmailView";
 import { Compose } from "@/components/mail/Compose";
@@ -27,10 +28,12 @@ import {
   deriveProof,
   emails as initialEmails,
   getEmailsForFolder,
+  getFolderLabel,
   mailFolders,
   type Email,
   type MailFilters,
   type MailFolder,
+  type MailLocation,
 } from "@/components/mail/data";
 import { usePreferences, useLayoutPreferences } from "@/features/preferences";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
@@ -242,6 +245,22 @@ function MailApp({ isDemoMode }: { isDemoMode?: boolean }) {
   const handleStar = (e: Email) => {
     updateEmail(e.id, { starred: !e.starred });
     showToast(e.starred ? `Unstarred "${e.subject}"` : `Starred "${e.subject}"`);
+  };
+
+  const handleMove = (emailIds: string[], target: MailFolder) => {
+    let moved = 0;
+    for (const id of emailIds) {
+      const email = emails.find((em) => em.id === id);
+      if (email && email.folder !== (target as MailLocation)) {
+        updateEmail(id, { folder: target as MailLocation });
+        moved++;
+      }
+    }
+    if (moved > 0) {
+      showToast(
+        `${moved === 1 ? "1 message" : `${moved} messages`} moved to ${getFolderLabel(target)}`,
+      );
+    }
   };
 
   const handleMobileSnooze = (e: Email) => {
@@ -675,7 +694,7 @@ function MailApp({ isDemoMode }: { isDemoMode?: boolean }) {
           )}
 
           <ResizablePanel defaultSize={isMobile ? 100 : 100 - layout.sidebarWidth}>
-            <div className="flex h-full flex-col min-w-0">
+            <div className="flex h-full flex-col min-w-0 pb-[72px] md:pb-0">
               <Topbar
                 onOpenPalette={() => setPaletteOpen(true)}
                 onOpenSettings={openSettings}
@@ -882,6 +901,17 @@ function MailApp({ isDemoMode }: { isDemoMode?: boolean }) {
           onShowToast={showToast}
         />
 
+        <BottomNavigation
+          active={folder}
+          onCompose={() => openCompose()}
+          onOpenPalette={() => setPaletteOpen(true)}
+          onOpenCalendar={() => openCalendar()}
+          onOpenSettings={openSettings}
+          onSelectFolder={(f) => {
+            setFolder(f);
+            setCustomFolder(null);
+          }}
+        />
         <FeedbackViewport items={feedbackItems} onDismiss={dismissFeedback} />
 
         <ImportWizard

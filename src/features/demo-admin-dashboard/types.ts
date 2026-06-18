@@ -50,6 +50,7 @@ export type DashboardSection =
   | "events"
   | "templates"
   | "campaigns"
+  | "timeline"
   | "audit"
   | "analytics";
 
