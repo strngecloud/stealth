@@ -666,7 +666,9 @@ export function DemoAdminDashboard({ className }: DemoAdminDashboardProps) {
   const [activePresetId, setActivePresetId] = useState<PresetId>("none");
   const [selectedAccountAddress, setSelectedAccountAddress] = useState<string | null>(null);
   const [selectedMailSubject, setSelectedMailSubject] = useState<string | null>(null);
-  const [campaignSubView, setCampaignSubView] = useState<"assignments" | "snapshots">("assignments");
+  const [campaignSubView, setCampaignSubView] = useState<"assignments" | "snapshots">(
+    "assignments",
+  );
   const [campaignDraftDataset, setCampaignDraftDataset] = useState<Draft[]>([]);
 
   const activePreset = PRESET_SCENARIOS.find((p) => p.id === activePresetId);
@@ -809,10 +811,12 @@ export function DemoAdminDashboard({ className }: DemoAdminDashboardProps) {
             <div className="space-y-6">
               {/* Sub-navigation toggle */}
               <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] p-1 border border-white/[0.06] w-fit">
-                {([
-                  { key: "assignments" as const, label: "Assignments", icon: Target },
-                  { key: "snapshots" as const, label: "Merge & Snapshots", icon: GitMerge },
-                ] as const).map((tab) => {
+                {(
+                  [
+                    { key: "assignments" as const, label: "Assignments", icon: Target },
+                    { key: "snapshots" as const, label: "Merge & Snapshots", icon: GitMerge },
+                  ] as const
+                ).map((tab) => {
                   const TabIcon = tab.icon;
                   const isActive = campaignSubView === tab.key;
                   return (
@@ -1005,7 +1009,8 @@ export function DemoAdminDashboard({ className }: DemoAdminDashboardProps) {
                       <Lock className="h-3 w-3" />
                       Payload Decryption Notes
                     </p>
-                    This payload is fully end-to-end encrypted on-chain. Bob Demo decrypted it using the ephemeral session key exchanged via Curve25519 and his private identity key.
+                    This payload is fully end-to-end encrypted on-chain. Bob Demo decrypted it using
+                    the ephemeral session key exchanged via Curve25519 and his private identity key.
                   </div>
                 )}
               </div>

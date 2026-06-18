@@ -67,9 +67,7 @@ describe("detectConflicts", () => {
     const existing = [
       makeDraft({ id: "e1", subject: "Existing", recipients: ["alice@acme.demo"] }),
     ];
-    const incoming = [
-      makeDraft({ id: "i1", subject: "Incoming", recipients: ["bob@acme.demo"] }),
-    ];
+    const incoming = [makeDraft({ id: "i1", subject: "Incoming", recipients: ["bob@acme.demo"] })];
 
     const conflicts = detectConflicts(incoming, existing);
     const senderConflict = conflicts.find((c) => c.type === "sender-collision");
@@ -168,12 +166,8 @@ describe("applyResolutions", () => {
   });
 
   it("merges recipients when resolution is 'merge-labels'", () => {
-    const existing = [
-      makeDraft({ id: "d1", recipients: ["alice@demo.com"] }),
-    ];
-    const incoming = [
-      makeDraft({ id: "d1", recipients: ["bob@demo.com"] }),
-    ];
+    const existing = [makeDraft({ id: "d1", recipients: ["alice@demo.com"] })];
+    const incoming = [makeDraft({ id: "d1", recipients: ["bob@demo.com"] })];
     const conflicts: Conflict[] = [
       {
         id: "dup-d1",

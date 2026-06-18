@@ -1,6 +1,7 @@
 # Postage Pricing Model Specification
 
 ## Why this matters
+
 Postage functions as a financial friction to deter high-volume mail abuse (spam) without penalizing legitimate user introductions or turning message rejection into an opportunistic revenue strategy for receiving relays.
 
 ---
@@ -16,6 +17,7 @@ The protocol models five postage pricing models to accommodate various communica
 5. **Dynamic Pricing**: Pricing calculated dynamically based on target relay load, queue size, XLM market volatility, and recipient-configured premium rates.
 
 ### Fee Breakdown
+
 $$Total\ Postage = Base\ Fee + Network\ Transaction\ Fee + Relay\ Routing\ Cost + Volatility\ Buffer$$
 
 ---
@@ -25,6 +27,7 @@ $$Total\ Postage = Base\ Fee + Network\ Transaction\ Fee + Relay\ Routing\ Cost 
 All figures are modeled in Stellar Lumens (XLM). Assume base exchange rate of $1\text{ XLM} = \$0.10\text{ USD}$.
 
 ### Profile A: Individual/Personal Sender
+
 - **Characteristics**: Sends cold introductions rarely (~2-5 per week).
 - **Pricing Model**: Refundable-on-Reply.
 - **Unit Economics**:
@@ -35,6 +38,7 @@ All figures are modeled in Stellar Lumens (XLM). Assume base exchange rate of $1
   - **Outcome**: Near-zero cost for genuine relationships, small friction for unreturned cold outreach.
 
 ### Profile B: Small Business / Newsletter Sender
+
 - **Characteristics**: Broadcasts to an opted-in subscriber list (~5,000 recipients).
 - **Pricing Model**: Refundable (on successful delivery acknowledgment).
 - **Unit Economics**:
@@ -45,6 +49,7 @@ All figures are modeled in Stellar Lumens (XLM). Assume base exchange rate of $1
   - **Outcome**: Highly economic for clean lists; invalid/bouncing addresses incur postage burns, penalizing list hygiene failures.
 
 ### Profile C: High-Volume Corporate Transactional System
+
 - **Characteristics**: Dispatches automated notifications, receipts, and alerts (~100,000 per day).
 - **Pricing Model**: Fixed (Non-refundable).
 - **Unit Economics**:
@@ -74,7 +79,7 @@ All figures are modeled in Stellar Lumens (XLM). Assume base exchange rate of $1
 
 > [!WARNING]
 > Before deploying this postage model, the following legal and accounting points must be resolved:
-> 
+>
 > 1. **Escrow Custody Regulation**: Do relays holding temporary postage deposits in Soroban contracts constitute "money transmitters" or custodians under US/EU regulations?
 > 2. **Tax Treatment of Burned Fees**: Are burned postage fees deductible as business expenses for senders? How do receiving relays account for collected non-refundable postage?
 > 3. **KYC/AML for Bulk Senders**: Does the collection of postage from high-volume senders trigger anti-money laundering (AML) profiling requirements?

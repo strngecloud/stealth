@@ -358,8 +358,25 @@ export const PRESET_SCENARIOS: PresetScenario[] = [
     accounts: [
       { name: "Alice Demo", address: "GABCD...1234", balance: "500.0 XLM", type: "User" },
       { name: "Bob Demo", address: "GBCDE...2345", balance: "320.0 XLM", type: "User" },
-      { name: "Relay Secured", address: "GCREL...SECD", balance: "1,850.0 XLM", type: "Relay (Active)", relayMetadata: { nodeUri: "relay-sec*stealth.demo", latency: "22ms", signatureScheme: "Ed25519", status: "verified", owner: "GDSEC...OWNR" } },
-      { name: "Key Registry", address: "CCKEY...REGY", balance: "12,000.0 XLM", type: "Soroban Contract" }
+      {
+        name: "Relay Secured",
+        address: "GCREL...SECD",
+        balance: "1,850.0 XLM",
+        type: "Relay (Active)",
+        relayMetadata: {
+          nodeUri: "relay-sec*stealth.demo",
+          latency: "22ms",
+          signatureScheme: "Ed25519",
+          status: "verified",
+          owner: "GDSEC...OWNR",
+        },
+      },
+      {
+        name: "Key Registry",
+        address: "CCKEY...REGY",
+        balance: "12,000.0 XLM",
+        type: "Soroban Contract",
+      },
     ],
     mail: [
       {
@@ -384,7 +401,7 @@ export const PRESET_SCENARIOS: PresetScenario[] = [
           signature: "Ed25519 [0x0b0b0b0b0b0b0b0b0b0b0bf31b]",
           postageStatus: "settled",
         },
-      }
+      },
     ],
     attachments: [
       {
@@ -394,7 +411,7 @@ export const PRESET_SCENARIOS: PresetScenario[] = [
         fileType: "Encrypted JSON",
         messageSubject: "Confidential Project Spec",
         sender: "alice*stealth.demo",
-      }
+      },
     ],
     events: [
       {
@@ -405,7 +422,7 @@ export const PRESET_SCENARIOS: PresetScenario[] = [
         location: "Soroban VM Key Exchange",
         organizer: "system",
         status: "confirmed",
-      }
+      },
     ],
     auditEvents: [
       {
@@ -422,7 +439,7 @@ export const PRESET_SCENARIOS: PresetScenario[] = [
         action: "Message payload successfully decrypted by Bob Demo client",
         actor: "Bob Demo",
         timestamp: "2026-06-16T10:17:00Z",
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];

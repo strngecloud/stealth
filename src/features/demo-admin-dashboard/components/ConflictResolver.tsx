@@ -47,10 +47,7 @@ interface ConflictResolverProps {
  * - sender-collision: Same first recipient domain but differing properties.
  * - label-conflict: Same `subject` but different `id` (possible duplicate content).
  */
-export function detectConflicts(
-  incomingDrafts: Draft[],
-  existingDrafts: Draft[],
-): Conflict[] {
+export function detectConflicts(incomingDrafts: Draft[], existingDrafts: Draft[]): Conflict[] {
   const conflicts: Conflict[] = [];
   const seen = new Set<string>();
 
