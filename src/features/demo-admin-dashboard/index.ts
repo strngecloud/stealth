@@ -284,3 +284,29 @@ export type {
   MessageFieldMeta,
 } from "./constants/messageListEditorModel";
 export { messageListFixtures } from "./fixtures/messageListFixtures";
+
+// Inbox seed dataset (issue #6): fixtures, metadata, helpers, validation
+export { inboxSeedDataset, inboxSeedMessages, inboxSeedSenders } from "./fixtures/inboxSeedDataset";
+export { inboxSeedMetadata, inboxSeedFolderMap, inboxSeedFolderCounts } from "./fixtures/inboxSeedMetadata";
+export type { InboxSeedMetadata } from "./fixtures/inboxSeedMetadata";
+export {
+  getMessagesByLabel,
+  getMessagesBySender,
+  getMessagesByProofStatus,
+  getMessagesByFolder,
+  getUnreadMessages,
+  getStarredMessages,
+  getMessagesWithAttachments,
+  getMessagesWithCalendarEvent,
+  getSnoozedMessages,
+  getTrustedSenders,
+  getUntrustedSenders,
+  getRelaySenders,
+  collectLabels,
+  computeFolderDistribution,
+  findMessageById,
+  findSenderByAddress,
+} from "./utils/inboxSeedHelpers";
+export { validateInboxSeedDataset } from "./seedDatasetValidation";
+export { getSeedDatasetPreview } from "./utils/seedDatasetPreview";
+export type { SeedDatasetPreview } from "./utils/seedDatasetPreview";
