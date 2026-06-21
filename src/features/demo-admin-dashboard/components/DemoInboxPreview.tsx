@@ -16,7 +16,7 @@ interface DemoInboxPreviewProps {
 
 /**
  * A folder-local preview of the demo inbox dataset.
- * 
+ *
  * This component provides a complete inbox preview experience without
  * wiring into live inbox systems. All data is fake, deterministic, and
  * safe for public repository review.
@@ -25,9 +25,9 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
   const [selectedMessageId, setSelectedMessageId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"list" | "reader">("list");
   const demoData = createDemoInboxData();
-  
-  const selectedMessage = selectedMessageId 
-    ? demoData.messages.find(msg => msg.id === selectedMessageId) 
+
+  const selectedMessage = selectedMessageId
+    ? (demoData.messages.find((msg) => msg.id === selectedMessageId) ?? null)
     : null;
 
   const handleMessageSelect = (messageId: string) => {
@@ -40,8 +40,8 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
     setSelectedMessageId(null);
   };
 
-  const unreadCount = demoData.messages.filter(msg => !msg.isRead).length;
-  const starredCount = demoData.messages.filter(msg => msg.isStarred).length;
+  const unreadCount = demoData.messages.filter((msg) => !msg.isRead).length;
+  const starredCount = demoData.messages.filter((msg) => msg.isStarred).length;
 
   return (
     <div className={cn("flex flex-col space-y-6", className)}>
@@ -56,7 +56,7 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
             Folder-local preview of demo inbox dataset without live integration
           </p>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Badge variant="secondary" className="flex items-center gap-1">
             <Mail className="h-3 w-3" />
@@ -83,7 +83,7 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
           <span className="text-sm font-medium">Preview Mode</span>
           <Badge variant="outline">Demo Data Only</Badge>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
@@ -110,7 +110,7 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="inbox" className="flex items-center gap-2">
             <Mail className="h-4 w-4" />
-            Inbox ({demoData.messages.filter(msg => msg.labels.includes("inbox")).length})
+            Inbox ({demoData.messages.filter((msg) => msg.labels.includes("inbox")).length})
           </TabsTrigger>
           <TabsTrigger value="starred" className="flex items-center gap-2">
             <Star className="h-4 w-4" />
@@ -118,17 +118,17 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
           </TabsTrigger>
           <TabsTrigger value="archive" className="flex items-center gap-2">
             <Archive className="h-4 w-4" />
-            Archive ({demoData.messages.filter(msg => msg.labels.includes("archive")).length})
+            Archive ({demoData.messages.filter((msg) => msg.labels.includes("archive")).length})
           </TabsTrigger>
           <TabsTrigger value="trash" className="flex items-center gap-2">
             <Trash2 className="h-4 w-4" />
-            Trash ({demoData.messages.filter(msg => msg.labels.includes("trash")).length})
+            Trash ({demoData.messages.filter((msg) => msg.labels.includes("trash")).length})
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="inbox" className="mt-6">
           <InboxTabContent
-            messages={demoData.messages.filter(msg => msg.labels.includes("inbox"))}
+            messages={demoData.messages.filter((msg) => msg.labels.includes("inbox"))}
             viewMode={viewMode}
             selectedMessage={selectedMessage}
             onMessageSelect={handleMessageSelect}
@@ -138,7 +138,7 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
 
         <TabsContent value="starred" className="mt-6">
           <InboxTabContent
-            messages={demoData.messages.filter(msg => msg.isStarred)}
+            messages={demoData.messages.filter((msg) => msg.isStarred)}
             viewMode={viewMode}
             selectedMessage={selectedMessage}
             onMessageSelect={handleMessageSelect}
@@ -148,7 +148,7 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
 
         <TabsContent value="archive" className="mt-6">
           <InboxTabContent
-            messages={demoData.messages.filter(msg => msg.labels.includes("archive"))}
+            messages={demoData.messages.filter((msg) => msg.labels.includes("archive"))}
             viewMode={viewMode}
             selectedMessage={selectedMessage}
             onMessageSelect={handleMessageSelect}
@@ -158,7 +158,7 @@ export function DemoInboxPreview({ className }: DemoInboxPreviewProps) {
 
         <TabsContent value="trash" className="mt-6">
           <InboxTabContent
-            messages={demoData.messages.filter(msg => msg.labels.includes("trash"))}
+            messages={demoData.messages.filter((msg) => msg.labels.includes("trash"))}
             viewMode={viewMode}
             selectedMessage={selectedMessage}
             onMessageSelect={handleMessageSelect}
@@ -193,15 +193,9 @@ function InboxTabContent({
       className="min-h-[600px] border rounded-lg overflow-hidden"
     >
       {viewMode === "list" ? (
-        <DemoInboxList
-          messages={messages}
-          onMessageSelect={onMessageSelect}
-        />
+        <DemoInboxList messages={messages} onMessageSelect={onMessageSelect} />
       ) : selectedMessage ? (
-        <DemoMailReader
-          message={selectedMessage}
-          onBackToList={onBackToList}
-        />
+        <DemoMailReader message={selectedMessage} onBackToList={onBackToList} />
       ) : (
         <div className="flex items-center justify-center h-[600px] text-muted-foreground">
           No message selected

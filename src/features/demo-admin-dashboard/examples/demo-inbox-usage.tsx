@@ -1,6 +1,6 @@
 /**
  * Example usage of the Demo Inbox Preview components.
- * 
+ *
  * This file demonstrates how to integrate the demo inbox preview
  * into the admin dashboard without connecting to live systems.
  */
@@ -19,9 +19,9 @@ export function DemoAdminInboxExample() {
           Manage and preview demo data for the Stealth mail system
         </p>
       </div>
-      
+
       <DemoInboxPreview />
-      
+
       <div className="mt-8 p-4 bg-muted/20 rounded-lg border">
         <h3 className="font-semibold mb-2">Integration Notes</h3>
         <ul className="text-sm text-muted-foreground space-y-1">
@@ -46,7 +46,7 @@ export function DemoInboxAdvancedExample() {
         <div className="lg:col-span-2">
           <DemoInboxPreview />
         </div>
-        
+
         {/* Sidebar with additional info */}
         <div className="space-y-4">
           <div className="p-4 border rounded-lg">
@@ -74,7 +74,7 @@ export function DemoInboxAdvancedExample() {
               </div>
             </div>
           </div>
-          
+
           <div className="p-4 border rounded-lg">
             <h3 className="font-semibold mb-3">Preview Features</h3>
             <ul className="text-sm space-y-1">

@@ -534,7 +534,7 @@ export type { DemoScenario, ScenarioLoadMode, ScenarioRegistry } from "./types/s
 
 // Demo Inbox Preview Components (issue #24): folder-local preview without live integration
 export { DemoInboxPreview } from "./components/DemoInboxPreview";
-export { DemoInboxList } from "./components/DemoInboxList";  
+export { DemoInboxList } from "./components/DemoInboxList";
 export { DemoMailReader } from "./components/DemoMailReader";
 
 // Demo Inbox Data Fixtures (issue #24): safe demo data for inbox preview

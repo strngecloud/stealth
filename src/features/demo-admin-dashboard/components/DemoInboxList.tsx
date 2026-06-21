@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { formatDistanceToNow } from "date-fns";
-import { 
-  Star, 
-  Paperclip, 
-  Calendar, 
-  Shield, 
-  Clock, 
+import {
+  Star,
+  Paperclip,
+  Calendar,
+  Shield,
+  Clock,
   CheckCircle2,
   AlertCircle,
-  Mail
+  Mail,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -24,7 +24,7 @@ interface DemoInboxListProps {
 
 /**
  * Demo inbox list component that displays messages in a familiar email list format.
- * 
+ *
  * This component mirrors the structure and styling of the real inbox list
  * without integrating with live mail systems. All interactions are local
  * and use demo data only.
@@ -67,21 +67,21 @@ interface DemoMessageRowProps {
 function DemoMessageRow({ message, onSelect, index }: DemoMessageRowProps) {
   const messageDate = new Date(message.date);
   const relativeTime = formatDistanceToNow(messageDate, { addSuffix: true });
-  
+
   // Generate consistent avatar color based on sender
   const getAvatarColor = (senderAddress: string) => {
     const colors = [
       "bg-red-500",
-      "bg-blue-500", 
+      "bg-blue-500",
       "bg-green-500",
       "bg-yellow-500",
       "bg-purple-500",
       "bg-pink-500",
       "bg-indigo-500",
-      "bg-cyan-500"
+      "bg-cyan-500",
     ];
-    const hash = senderAddress.split('').reduce((a, b) => {
-      a = ((a << 5) - a) + b.charCodeAt(0);
+    const hash = senderAddress.split("").reduce((a, b) => {
+      a = (a << 5) - a + b.charCodeAt(0);
       return a & a;
     }, 0);
     return colors[Math.abs(hash) % colors.length];
@@ -89,7 +89,11 @@ function DemoMessageRow({ message, onSelect, index }: DemoMessageRowProps) {
 
   const avatarColor = getAvatarColor(message.sender.address);
   const senderInitials = message.sender.name
-    ? message.sender.name.split(' ').map(n => n[0]).join('').toUpperCase()
+    ? message.sender.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
     : message.sender.address[0].toUpperCase();
 
   return (
@@ -102,7 +106,7 @@ function DemoMessageRow({ message, onSelect, index }: DemoMessageRowProps) {
         variant="ghost"
         className={cn(
           "w-full h-auto p-4 justify-start text-left hover:bg-muted/50 transition-colors",
-          !message.isRead && "bg-accent/20 border-l-2 border-l-primary"
+          !message.isRead && "bg-accent/20 border-l-2 border-l-primary",
         )}
         onClick={onSelect}
       >
@@ -119,46 +123,39 @@ function DemoMessageRow({ message, onSelect, index }: DemoMessageRowProps) {
             {/* Header Row */}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2 min-w-0">
-                <span className={cn(
-                  "text-sm font-medium truncate",
-                  !message.isRead && "font-semibold"
-                )}>
+                <span
+                  className={cn("text-sm font-medium truncate", !message.isRead && "font-semibold")}
+                >
                   {message.sender.name || message.sender.address}
                 </span>
-                
+
                 {/* Trust Badge */}
                 {message.sender.isTrusted && (
                   <Shield className="h-3 w-3 text-green-500 flex-shrink-0" />
                 )}
-                
+
                 {/* Proof Status */}
-                {message.proofRecord && (
-                  <ProofStatusIcon status={message.proofRecord.status} />
-                )}
+                {message.proofRecord && <ProofStatusIcon status={message.proofRecord.status} />}
               </div>
-              
+
               <div className="flex items-center space-x-1 flex-shrink-0">
-                <span className="text-xs text-muted-foreground">
-                  {relativeTime}
-                </span>
-                {message.isStarred && (
-                  <Star className="h-3 w-3 text-yellow-500 fill-current" />
-                )}
+                <span className="text-xs text-muted-foreground">{relativeTime}</span>
+                {message.isStarred && <Star className="h-3 w-3 text-yellow-500 fill-current" />}
               </div>
             </div>
 
             {/* Subject */}
-            <p className={cn(
-              "text-sm truncate",
-              !message.isRead ? "font-medium text-foreground" : "text-muted-foreground"
-            )}>
+            <p
+              className={cn(
+                "text-sm truncate",
+                !message.isRead ? "font-medium text-foreground" : "text-muted-foreground",
+              )}
+            >
               {message.subject}
             </p>
 
             {/* Snippet */}
-            <p className="text-xs text-muted-foreground line-clamp-2">
-              {message.snippet}
-            </p>
+            <p className="text-xs text-muted-foreground line-clamp-2">{message.snippet}</p>
 
             {/* Metadata Row */}
             <div className="flex items-center space-x-3 pt-1">
@@ -187,14 +184,15 @@ function DemoMessageRow({ message, onSelect, index }: DemoMessageRowProps) {
               )}
 
               {/* Labels */}
-              {message.labels.slice(0, 2).map(label => (
-                label !== "inbox" && (
-                  <Badge key={label} variant="outline" className="text-xs h-5 px-1.5">
-                    {label}
-                  </Badge>
-                )
-              ))}
-              
+              {message.labels.slice(0, 2).map(
+                (label) =>
+                  label !== "inbox" && (
+                    <Badge key={label} variant="outline" className="text-xs h-5 px-1.5">
+                      {label}
+                    </Badge>
+                  ),
+              )}
+
               {message.labels.length > 3 && (
                 <span className="text-xs text-muted-foreground">
                   +{message.labels.length - 3} more

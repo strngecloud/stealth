@@ -36,22 +36,26 @@ Shows full message content with rich formatting:
 ## Demo Data Structure
 
 ### Messages
-- **Safe email addresses**: Only @example.com, @example.org, *.stealth.demo
+
+- **Safe email addresses**: Only @example.com, @example.org, \*.stealth.demo
 - **Rich content**: HTML bodies, attachments, calendar events
 - **Metadata**: Labels, proof records, sender policies
 - **Folders**: Inbox, starred, archive, trash distribution
 
 ### Senders
+
 - **Verified personas**: Consistent names and trust levels
 - **Relay nodes**: Demo relay infrastructure references
 - **Trust indicators**: Trusted/untrusted classification for testing
 
 ### Attachments
+
 - **File types**: PDF, DOCX, XLSX, PNG with realistic sizes
 - **Demo URLs**: Safe placeholder paths for preview
 - **Metadata**: Proper MIME types and file size formatting
 
 ### Calendar Events
+
 - **Meeting details**: Safe locations and attendee lists
 - **Time ranges**: Realistic scheduling with demo timestamps
 - **Integration**: Embedded in messages with preview cards

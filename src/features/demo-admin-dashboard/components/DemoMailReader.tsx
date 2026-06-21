@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { formatDistanceToNow, format } from "date-fns";
-import { 
-  ArrowLeft, 
-  Star, 
-  Reply, 
-  ReplyAll, 
-  Forward, 
-  Archive, 
+import {
+  ArrowLeft,
+  Star,
+  Reply,
+  ReplyAll,
+  Forward,
+  Archive,
   Trash2,
   MoreHorizontal,
   Paperclip,
@@ -16,7 +16,7 @@ import {
   Clock,
   AlertCircle,
   ExternalLink,
-  Download
+  Download,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -39,7 +39,7 @@ interface DemoMailReaderProps {
 
 /**
  * Demo mail reader component that displays a single message with full content.
- * 
+ *
  * This component provides a complete email reading experience using demo data
  * without integrating with live mail systems. All actions are simulated and
  * do not perform actual operations.
@@ -53,16 +53,16 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
   const getAvatarColor = (senderAddress: string) => {
     const colors = [
       "bg-red-500",
-      "bg-blue-500", 
+      "bg-blue-500",
       "bg-green-500",
       "bg-yellow-500",
       "bg-purple-500",
       "bg-pink-500",
       "bg-indigo-500",
-      "bg-cyan-500"
+      "bg-cyan-500",
     ];
-    const hash = senderAddress.split('').reduce((a, b) => {
-      a = ((a << 5) - a) + b.charCodeAt(0);
+    const hash = senderAddress.split("").reduce((a, b) => {
+      a = (a << 5) - a + b.charCodeAt(0);
       return a & a;
     }, 0);
     return colors[Math.abs(hash) % colors.length];
@@ -70,7 +70,11 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
 
   const avatarColor = getAvatarColor(message.sender.address);
   const senderInitials = message.sender.name
-    ? message.sender.name.split(' ').map(n => n[0]).join('').toUpperCase()
+    ? message.sender.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
     : message.sender.address[0].toUpperCase();
 
   return (
@@ -87,26 +91,26 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
             <ArrowLeft className="h-4 w-4" />
             Back to List
           </Button>
-          
+
           <Separator orientation="vertical" className="h-6" />
-          
+
           <div className="flex items-center space-x-2">
             <Badge variant="outline" className="text-xs">
               Demo Mode
             </Badge>
-            <span className="text-sm text-muted-foreground">
-              {relativeTime}
-            </span>
+            <span className="text-sm text-muted-foreground">{relativeTime}</span>
           </div>
         </div>
 
         {/* Action Buttons */}
         <div className="flex items-center space-x-2">
           <Button variant="ghost" size="sm" className="flex items-center gap-2">
-            <Star className={cn(
-              "h-4 w-4",
-              message.isStarred ? "text-yellow-500 fill-current" : "text-muted-foreground"
-            )} />
+            <Star
+              className={cn(
+                "h-4 w-4",
+                message.isStarred ? "text-yellow-500 fill-current" : "text-muted-foreground",
+              )}
+            />
           </Button>
           <Button variant="ghost" size="sm">
             <Reply className="h-4 w-4" />
@@ -148,35 +152,31 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
         >
           {/* Message Header */}
           <div className="space-y-4">
-            <h1 className="text-2xl font-semibold leading-tight">
-              {message.subject}
-            </h1>
-            
+            <h1 className="text-2xl font-semibold leading-tight">{message.subject}</h1>
+
             <div className="flex items-start space-x-4">
               <Avatar className="h-12 w-12">
                 <AvatarFallback className={cn("text-white text-sm font-medium", avatarColor)}>
                   {senderInitials}
                 </AvatarFallback>
               </Avatar>
-              
+
               <div className="flex-1 space-y-2">
                 <div className="flex items-center space-x-2">
                   <span className="font-medium">
                     {message.sender.name || message.sender.address}
                   </span>
-                  
+
                   {message.sender.isTrusted && (
                     <Badge variant="secondary" className="text-xs h-5 px-2 flex items-center gap-1">
                       <Shield className="h-3 w-3" />
                       Verified Sender
                     </Badge>
                   )}
-                  
-                  {message.proofRecord && (
-                    <ProofStatusBadge status={message.proofRecord.status} />
-                  )}
+
+                  {message.proofRecord && <ProofStatusBadge status={message.proofRecord.status} />}
                 </div>
-                
+
                 <div className="text-sm text-muted-foreground space-y-1">
                   <div>
                     <span className="font-medium">From:</span> {message.sender.address}
@@ -193,9 +193,7 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
           </div>
 
           {/* Proof Record Details */}
-          {message.proofRecord && (
-            <ProofRecordDetails proofRecord={message.proofRecord} />
-          )}
+          {message.proofRecord && <ProofRecordDetails proofRecord={message.proofRecord} />}
 
           {/* Attachments */}
           {message.attachments.length > 0 && (
@@ -203,19 +201,13 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
           )}
 
           {/* Calendar Event */}
-          {message.calendarEvent && (
-            <CalendarEventCard event={message.calendarEvent} />
-          )}
+          {message.calendarEvent && <CalendarEventCard event={message.calendarEvent} />}
 
           <Separator />
 
           {/* Message Body */}
           <div className="prose prose-sm dark:prose-invert max-w-none">
-            <div 
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: message.body }}
-              className="leading-relaxed"
-            />
+            <div dangerouslySetInnerHTML={{ __html: message.body }} className="leading-relaxed" />
           </div>
 
           {/* Labels */}
@@ -223,7 +215,7 @@ export function DemoMailReader({ message, onBackToList }: DemoMailReaderProps) {
             <div className="flex items-center space-x-2 pt-4">
               <span className="text-sm font-medium text-muted-foreground">Labels:</span>
               <div className="flex flex-wrap gap-2">
-                {message.labels.map(label => (
+                {message.labels.map((label) => (
                   <Badge key={label} variant="outline" className="text-xs">
                     {label}
                   </Badge>
@@ -247,26 +239,26 @@ function ProofStatusBadge({ status }: ProofStatusBadgeProps) {
       icon: CheckCircle2,
       label: "Verified",
       variant: "default" as const,
-      className: "bg-green-500 text-white"
+      className: "bg-green-500 text-white",
     },
     pending: {
       icon: Clock,
       label: "Proof Pending",
       variant: "secondary" as const,
-      className: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+      className: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
     },
     failed: {
       icon: AlertCircle,
       label: "Verification Failed",
       variant: "destructive" as const,
-      className: ""
+      className: "",
     },
     none: {
       icon: null,
       label: "",
       variant: "outline" as const,
-      className: ""
-    }
+      className: "",
+    },
   };
 
   const { icon: Icon, label, variant, className } = config[status];
@@ -282,7 +274,7 @@ function ProofStatusBadge({ status }: ProofStatusBadgeProps) {
 }
 
 interface ProofRecordDetailsProps {
-  proofRecord: NonNullable<DemoMessage['proofRecord']>;
+  proofRecord: NonNullable<DemoMessage["proofRecord"]>;
 }
 
 function ProofRecordDetails({ proofRecord }: ProofRecordDetailsProps) {
@@ -294,7 +286,7 @@ function ProofRecordDetails({ proofRecord }: ProofRecordDetailsProps) {
           Demo Data
         </Badge>
       </div>
-      
+
       <div className="grid grid-cols-2 gap-4 text-sm">
         <div>
           <span className="font-medium text-muted-foreground">Status:</span>
@@ -302,12 +294,12 @@ function ProofRecordDetails({ proofRecord }: ProofRecordDetailsProps) {
             <ProofStatusBadge status={proofRecord.status} />
           </div>
         </div>
-        
+
         <div>
           <span className="font-medium text-muted-foreground">Timestamp:</span>
           <div className="mt-1">{format(new Date(proofRecord.timestamp), "PPp")}</div>
         </div>
-        
+
         {proofRecord.postageAmount && (
           <div>
             <span className="font-medium text-muted-foreground">Postage:</span>
@@ -316,7 +308,7 @@ function ProofRecordDetails({ proofRecord }: ProofRecordDetailsProps) {
             </div>
           </div>
         )}
-        
+
         {proofRecord.policyId && (
           <div>
             <span className="font-medium text-muted-foreground">Policy ID:</span>
@@ -329,16 +321,16 @@ function ProofRecordDetails({ proofRecord }: ProofRecordDetailsProps) {
 }
 
 interface AttachmentsSectionProps {
-  attachments: DemoMessage['attachments'];
+  attachments: DemoMessage["attachments"];
 }
 
 function AttachmentsSection({ attachments }: AttachmentsSectionProps) {
   const formatFileSize = (bytes: number) => {
-    if (bytes === 0) return '0 Bytes';
+    if (bytes === 0) return "0 Bytes";
     const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const sizes = ["Bytes", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
   };
 
   return (
@@ -349,9 +341,9 @@ function AttachmentsSection({ attachments }: AttachmentsSectionProps) {
           Attachments ({attachments.length})
         </h3>
       </div>
-      
+
       <div className="space-y-2">
-        {attachments.map(attachment => (
+        {attachments.map((attachment) => (
           <div
             key={attachment.id}
             className="flex items-center justify-between p-3 bg-background rounded border"
@@ -367,7 +359,7 @@ function AttachmentsSection({ attachments }: AttachmentsSectionProps) {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-2">
               <Button variant="ghost" size="sm">
                 <ExternalLink className="h-4 w-4" />
@@ -384,13 +376,13 @@ function AttachmentsSection({ attachments }: AttachmentsSectionProps) {
 }
 
 interface CalendarEventCardProps {
-  event: NonNullable<DemoMessage['calendarEvent']>;
+  event: NonNullable<DemoMessage["calendarEvent"]>;
 }
 
 function CalendarEventCard({ event }: CalendarEventCardProps) {
   const startDate = new Date(event.startTime);
   const endDate = new Date(event.endTime);
-  
+
   return (
     <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800 space-y-3">
       <div className="flex items-center justify-between">
@@ -402,10 +394,10 @@ function CalendarEventCard({ event }: CalendarEventCardProps) {
           Add to Calendar
         </Button>
       </div>
-      
+
       <div className="space-y-2">
         <h4 className="font-medium">{event.title}</h4>
-        
+
         <div className="text-sm space-y-1">
           <div className="flex items-center space-x-2">
             <Clock className="h-3 w-3 text-muted-foreground" />
@@ -413,7 +405,7 @@ function CalendarEventCard({ event }: CalendarEventCardProps) {
               {format(startDate, "PPP 'at' p")} - {format(endDate, "p")}
             </span>
           </div>
-          
+
           {event.location && (
             <div className="flex items-center space-x-2">
               <ExternalLink className="h-3 w-3 text-muted-foreground" />
@@ -421,7 +413,7 @@ function CalendarEventCard({ event }: CalendarEventCardProps) {
             </div>
           )}
         </div>
-        
+
         {event.attendees.length > 0 && (
           <div className="pt-2 border-t">
             <p className="text-xs font-medium text-muted-foreground mb-1">

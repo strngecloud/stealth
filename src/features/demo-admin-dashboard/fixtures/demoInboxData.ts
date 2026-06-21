@@ -1,8 +1,15 @@
-import type { DemoDataset, DemoMessage, DemoSender, DemoAttachment, DemoCalendarEvent, DemoProofRecord } from "../types/dataset";
+import type {
+  DemoDataset,
+  DemoMessage,
+  DemoSender,
+  DemoAttachment,
+  DemoCalendarEvent,
+  DemoProofRecord,
+} from "../types/dataset";
 
 /**
  * Demo inbox data fixtures for the preview components.
- * 
+ *
  * IMPORTANT: All data is fake, deterministic, and safe for public repository review.
  * Email addresses use @example.com, @example.org, or *.stealth.demo domains only.
  * No real user data, secrets, private keys, or live network calls are used.
@@ -16,13 +23,13 @@ const DEMO_SENDERS: DemoSender[] = [
     address: "alice@example.com",
     name: "Alice Johnson",
     isTrusted: true,
-    relayNode: "relay-1.stealth.demo"
+    relayNode: "relay-1.stealth.demo",
   },
   {
-    address: "bob@example.org", 
+    address: "bob@example.org",
     name: "Bob Chen",
     isTrusted: true,
-    relayNode: "relay-2.stealth.demo"
+    relayNode: "relay-2.stealth.demo",
   },
   {
     address: "charlie@example.com",
@@ -33,7 +40,7 @@ const DEMO_SENDERS: DemoSender[] = [
     address: "diana@example.org",
     name: "Diana Rodriguez",
     isTrusted: true,
-    relayNode: "relay-3.stealth.demo"
+    relayNode: "relay-3.stealth.demo",
   },
   {
     address: "eve@example.com",
@@ -44,19 +51,19 @@ const DEMO_SENDERS: DemoSender[] = [
     address: "frank@example.org",
     name: "Frank Miller",
     isTrusted: true,
-    relayNode: "relay-1.stealth.demo"
+    relayNode: "relay-1.stealth.demo",
   },
   {
     address: "grace@notifications.stealth.demo",
     name: "Stealth Notifications",
     isTrusted: true,
-    relayNode: "system.stealth.demo"
+    relayNode: "system.stealth.demo",
   },
   {
     address: "support@example.com",
     name: "Support Team",
     isTrusted: true,
-  }
+  },
 ];
 
 /**
@@ -68,36 +75,36 @@ const DEMO_ATTACHMENTS: DemoAttachment[] = [
     filename: "project-proposal.pdf",
     contentType: "application/pdf",
     sizeBytes: 2457600, // 2.4 MB
-    url: "/demo/attachments/project-proposal.pdf"
+    url: "/demo/attachments/project-proposal.pdf",
   },
   {
-    id: "att-2", 
+    id: "att-2",
     filename: "meeting-notes.docx",
     contentType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     sizeBytes: 524288, // 512 KB
-    url: "/demo/attachments/meeting-notes.docx"
+    url: "/demo/attachments/meeting-notes.docx",
   },
   {
     id: "att-3",
     filename: "quarterly-report.xlsx",
-    contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
+    contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     sizeBytes: 1048576, // 1 MB
-    url: "/demo/attachments/quarterly-report.xlsx"
+    url: "/demo/attachments/quarterly-report.xlsx",
   },
   {
     id: "att-4",
     filename: "demo-screenshot.png",
     contentType: "image/png",
     sizeBytes: 307200, // 300 KB
-    url: "/demo/attachments/demo-screenshot.png"
+    url: "/demo/attachments/demo-screenshot.png",
   },
   {
     id: "att-5",
     filename: "invoice-2026-q2.pdf",
-    contentType: "application/pdf", 
+    contentType: "application/pdf",
     sizeBytes: 98304, // 96 KB
-    url: "/demo/attachments/invoice-2026-q2.pdf"
-  }
+    url: "/demo/attachments/invoice-2026-q2.pdf",
+  },
 ];
 
 /**
@@ -108,26 +115,26 @@ const DEMO_CALENDAR_EVENTS: DemoCalendarEvent[] = [
     id: "cal-1",
     title: "Project Kickoff Meeting",
     startTime: "2026-06-25T14:00",
-    endTime: "2026-06-25T15:00", 
+    endTime: "2026-06-25T15:00",
     location: "Conference Room A",
-    attendees: ["alice@example.com", "bob@example.org", "charlie@example.com"]
+    attendees: ["alice@example.com", "bob@example.org", "charlie@example.com"],
   },
   {
     id: "cal-2",
-    title: "Demo Presentation", 
+    title: "Demo Presentation",
     startTime: "2026-06-28T16:00",
     endTime: "2026-06-28T17:30",
     location: "Virtual Meeting",
-    attendees: ["diana@example.org", "eve@example.com", "frank@example.org"]
+    attendees: ["diana@example.org", "eve@example.com", "frank@example.org"],
   },
   {
     id: "cal-3",
     title: "Weekly Sync",
-    startTime: "2026-06-30T10:00", 
+    startTime: "2026-06-30T10:00",
     endTime: "2026-06-30T10:30",
     location: "Team Room",
-    attendees: ["alice@example.com", "bob@example.org"]
-  }
+    attendees: ["alice@example.com", "bob@example.org"],
+  },
 ];
 
 /**
@@ -140,15 +147,15 @@ const DEMO_PROOF_RECORDS: DemoProofRecord[] = [
     timestamp: "2026-06-20T08:30:00Z",
     postageAmount: 0.001,
     postageCurrency: "DEMO",
-    policyId: "policy-allow-verified"
+    policyId: "policy-allow-verified",
   },
   {
     id: "proof-2",
-    status: "pending", 
+    status: "pending",
     timestamp: "2026-06-20T09:15:00Z",
     postageAmount: 0.002,
-    postageCurrency: "DEMO", 
-    policyId: "policy-verify-pending"
+    postageCurrency: "DEMO",
+    policyId: "policy-verify-pending",
   },
   {
     id: "proof-3",
@@ -156,14 +163,14 @@ const DEMO_PROOF_RECORDS: DemoProofRecord[] = [
     timestamp: "2026-06-20T10:45:00Z",
     postageAmount: 0.0005,
     postageCurrency: "DEMO",
-    policyId: "policy-allow-trusted"
+    policyId: "policy-allow-trusted",
   },
   {
-    id: "proof-4", 
+    id: "proof-4",
     status: "failed",
     timestamp: "2026-06-20T11:20:00Z",
-    policyId: "policy-block-suspicious"
-  }
+    policyId: "policy-block-suspicious",
+  },
 ];
 
 /**
@@ -202,11 +209,11 @@ const DEMO_MESSAGES: DemoMessage[] = [
     isStarred: true,
     labels: ["inbox", "welcome"],
     attachments: [],
-    proofRecord: DEMO_PROOF_RECORDS[0]
+    proofRecord: DEMO_PROOF_RECORDS[0],
   },
-  
+
   {
-    id: "msg-2", 
+    id: "msg-2",
     threadId: "thread-2",
     subject: "Project Proposal Review",
     snippet: "I've attached the updated project proposal for your review. Please let me know...",
@@ -229,17 +236,17 @@ const DEMO_MESSAGES: DemoMessage[] = [
     `,
     sender: DEMO_SENDERS[0], // Alice Johnson
     recipients: ["team@example.com", "bob@example.org"],
-    date: "2026-06-20T09:15:00Z", 
+    date: "2026-06-20T09:15:00Z",
     isRead: true,
     isStarred: false,
     labels: ["inbox", "work", "projects"],
     attachments: [DEMO_ATTACHMENTS[0]], // project-proposal.pdf
-    proofRecord: DEMO_PROOF_RECORDS[1]
+    proofRecord: DEMO_PROOF_RECORDS[1],
   },
-  
+
   {
     id: "msg-3",
-    threadId: "thread-3", 
+    threadId: "thread-3",
     subject: "Meeting Invitation: Project Kickoff",
     snippet: "You're invited to attend the project kickoff meeting next Thursday...",
     body: `
@@ -268,13 +275,13 @@ const DEMO_MESSAGES: DemoMessage[] = [
     labels: ["inbox", "meetings"],
     attachments: [],
     calendarEvent: DEMO_CALENDAR_EVENTS[0],
-    proofRecord: DEMO_PROOF_RECORDS[2]
+    proofRecord: DEMO_PROOF_RECORDS[2],
   },
-  
+
   {
     id: "msg-4",
     threadId: "thread-4",
-    subject: "Suspicious Activity Detected", 
+    subject: "Suspicious Activity Detected",
     snippet: "We've detected some unusual activity on your account. Please review...",
     body: `
       <p>Dear User,</p>
@@ -290,13 +297,13 @@ const DEMO_MESSAGES: DemoMessage[] = [
     sender: DEMO_SENDERS[4], // Eve Wilson (untrusted)
     recipients: ["demo@example.com"],
     date: "2026-06-20T11:20:00Z",
-    isRead: false, 
+    isRead: false,
     isStarred: false,
     labels: ["inbox", "security"],
     attachments: [],
-    proofRecord: DEMO_PROOF_RECORDS[3]
+    proofRecord: DEMO_PROOF_RECORDS[3],
   },
-  
+
   {
     id: "msg-5",
     threadId: "thread-5",
@@ -322,12 +329,12 @@ const DEMO_MESSAGES: DemoMessage[] = [
     isStarred: true,
     labels: ["inbox", "presentations"],
     attachments: [DEMO_ATTACHMENTS[1], DEMO_ATTACHMENTS[3]], // meeting-notes.docx, demo-screenshot.png
-    calendarEvent: DEMO_CALENDAR_EVENTS[1]
+    calendarEvent: DEMO_CALENDAR_EVENTS[1],
   },
-  
+
   {
     id: "msg-6",
-    threadId: "thread-6", 
+    threadId: "thread-6",
     subject: "Quarterly Report Ready for Review",
     snippet: "The Q2 quarterly report has been completed and is ready for your review...",
     body: `
@@ -355,7 +362,7 @@ const DEMO_MESSAGES: DemoMessage[] = [
     labels: ["inbox", "reports", "finance"],
     attachments: [DEMO_ATTACHMENTS[2]], // quarterly-report.xlsx
   },
-  
+
   {
     id: "msg-7",
     threadId: "thread-7",
@@ -382,11 +389,11 @@ const DEMO_MESSAGES: DemoMessage[] = [
     recipients: ["demo@example.com"],
     date: "2026-06-20T14:15:00Z",
     isRead: true,
-    isStarred: false, 
+    isStarred: false,
     labels: ["inbox", "support"],
     attachments: [],
   },
-  
+
   {
     id: "msg-8",
     threadId: "thread-8",
@@ -416,9 +423,9 @@ const DEMO_MESSAGES: DemoMessage[] = [
     isStarred: false,
     labels: ["inbox", "meetings", "team"],
     attachments: [],
-    calendarEvent: DEMO_CALENDAR_EVENTS[2]
+    calendarEvent: DEMO_CALENDAR_EVENTS[2],
   },
-  
+
   // Archived message
   {
     id: "msg-9",
@@ -443,10 +450,10 @@ const DEMO_MESSAGES: DemoMessage[] = [
     labels: ["archive", "completed"],
     attachments: [],
   },
-  
+
   // Trash message
   {
-    id: "msg-10", 
+    id: "msg-10",
     threadId: "thread-10",
     subject: "SPAM: Special Offer Just for You!",
     snippet: "Congratulations! You've been selected for a special offer...",
@@ -465,7 +472,7 @@ const DEMO_MESSAGES: DemoMessage[] = [
     isStarred: false,
     labels: ["trash", "spam"],
     attachments: [],
-  }
+  },
 ];
 
 /**
@@ -477,7 +484,7 @@ export function createDemoInboxData(): DemoDataset {
     name: "Demo Inbox Dataset",
     description: "Curated demo messages for inbox preview functionality",
     messages: DEMO_MESSAGES,
-    senders: DEMO_SENDERS
+    senders: DEMO_SENDERS,
   };
 }
 
@@ -485,33 +492,33 @@ export function createDemoInboxData(): DemoDataset {
  * Get demo messages by specific criteria for testing different scenarios.
  */
 export function getDemoMessagesByLabel(label: string): DemoMessage[] {
-  return DEMO_MESSAGES.filter(message => message.labels.includes(label));
+  return DEMO_MESSAGES.filter((message) => message.labels.includes(label));
 }
 
 /**
  * Get unread demo messages.
  */
 export function getUnreadDemoMessages(): DemoMessage[] {
-  return DEMO_MESSAGES.filter(message => !message.isRead);
+  return DEMO_MESSAGES.filter((message) => !message.isRead);
 }
 
 /**
  * Get starred demo messages.
  */
 export function getStarredDemoMessages(): DemoMessage[] {
-  return DEMO_MESSAGES.filter(message => message.isStarred);
+  return DEMO_MESSAGES.filter((message) => message.isStarred);
 }
 
 /**
  * Get demo messages with attachments.
  */
 export function getDemoMessagesWithAttachments(): DemoMessage[] {
-  return DEMO_MESSAGES.filter(message => message.attachments.length > 0);
+  return DEMO_MESSAGES.filter((message) => message.attachments.length > 0);
 }
 
 /**
  * Get demo messages with calendar events.
  */
 export function getDemoMessagesWithEvents(): DemoMessage[] {
-  return DEMO_MESSAGES.filter(message => message.calendarEvent);
+  return DEMO_MESSAGES.filter((message) => message.calendarEvent);
 }
