@@ -14,10 +14,7 @@ const sampleEmail = SAMPLE_EMAILS[0].email;
 
 function isElement(n: unknown): n is ReactElement {
   return (
-    typeof n === "object" &&
-    n !== null &&
-    "type" in n &&
-    "props" in (n as Record<string, unknown>)
+    typeof n === "object" && n !== null && "type" in n && "props" in (n as Record<string, unknown>)
   );
 }
 
@@ -37,10 +34,7 @@ function findInTree(
   return null;
 }
 
-function hasElement(
-  node: ReactNode,
-  predicate: (el: ReactElement) => boolean,
-): boolean {
+function hasElement(node: ReactNode, predicate: (el: ReactElement) => boolean): boolean {
   return findInTree(node, predicate) !== null;
 }
 
@@ -65,9 +59,7 @@ describe("EmailSummaryError", () => {
   it("renders error heading and message", () => {
     const el = EmailSummaryError(defaultProps);
     expect(hasElement(el, (n) => n.props.children === "Unable to summarize")).toBe(true);
-    expect(
-      hasElement(el, (n) => String(n.props.children).includes("Cannot summarize")),
-    ).toBe(true);
+    expect(hasElement(el, (n) => String(n.props.children).includes("Cannot summarize"))).toBe(true);
   });
 
   it("renders retry button when onRetry provided", () => {

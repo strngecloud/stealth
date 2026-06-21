@@ -6,11 +6,7 @@ export interface EmailSummaryErrorProps {
   onRetry?: () => void;
 }
 
-export function EmailSummaryError({
-  code,
-  message,
-  onRetry,
-}: EmailSummaryErrorProps): JSX.Element {
+export function EmailSummaryError({ code, message, onRetry }: EmailSummaryErrorProps): JSX.Element {
   return (
     <section
       aria-label="Summary error"
@@ -22,11 +18,7 @@ export function EmailSummaryError({
         backgroundColor: "#fdf0ef",
       }}
     >
-      <p
-        style={{ color: "#c0392b", fontWeight: 600, marginTop: 0 }}
-      >
-        Unable to summarize
-      </p>
+      <p style={{ color: "#c0392b", fontWeight: 600, marginTop: 0 }}>Unable to summarize</p>
       <p style={{ color: "#555", margin: "0.5rem 0" }}>{message}</p>
       {onRetry && (
         <button

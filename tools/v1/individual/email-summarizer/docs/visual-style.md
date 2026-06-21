@@ -16,18 +16,18 @@ issue wires it in.
 
 ## Colors
 
-| Token               | Hex       | Usage                              |
-|----------------------|-----------|------------------------------------|
-| `--es-border`        | `#e0e0e0` | Default border and loading ring    |
-| `--es-border-dashed` | `#ccc`    | Dashed border for empty state      |
-| `--es-text-primary`  | `#222`    | Summary narrative body text        |
-| `--es-text-secondary`| `#666`    | Labels, metadata, hint text        |
-| `--es-text-muted`    | `#888`    | Truncation notice                  |
-| `--es-accent`        | `#0066cc` | Loading spinner top border         |
-| `--es-error-border`  | `#e74c3c` | Error state border                 |
-| `--es-error-bg`      | `#fdf0ef` | Error state background             |
-| `--es-error-text`    | `#c0392b` | Error heading and retry border     |
-| `--es-header-bg`     | `#f9f9fb` | Success view header background     |
+| Token                 | Hex       | Usage                           |
+| --------------------- | --------- | ------------------------------- |
+| `--es-border`         | `#e0e0e0` | Default border and loading ring |
+| `--es-border-dashed`  | `#ccc`    | Dashed border for empty state   |
+| `--es-text-primary`   | `#222`    | Summary narrative body text     |
+| `--es-text-secondary` | `#666`    | Labels, metadata, hint text     |
+| `--es-text-muted`     | `#888`    | Truncation notice               |
+| `--es-accent`         | `#0066cc` | Loading spinner top border      |
+| `--es-error-border`   | `#e74c3c` | Error state border              |
+| `--es-error-bg`       | `#fdf0ef` | Error state background          |
+| `--es-error-text`     | `#c0392b` | Error heading and retry border  |
+| `--es-header-bg`      | `#f9f9fb` | Success view header background  |
 
 ## Typography
 
@@ -66,9 +66,9 @@ issue wires it in.
 
 ## States
 
-| State   | Component           | Visual cue                                      |
-|---------|---------------------|-------------------------------------------------|
-| idle    | `EmailSummaryEmpty` | Dashed border, centered placeholder message     |
-| loading | `EmailSummaryLoading`| CSS spinner animation + "Summarizing email…"   |
-| error   | `EmailSummaryError` | Red border + background, error message, retry   |
-| ready   | `EmailSummaryView`  | Solid border, header with metadata, body text   |
+| State   | Component             | Visual cue                                    |
+| ------- | --------------------- | --------------------------------------------- |
+| idle    | `EmailSummaryEmpty`   | Dashed border, centered placeholder message   |
+| loading | `EmailSummaryLoading` | CSS spinner animation + "Summarizing email…"  |
+| error   | `EmailSummaryError`   | Red border + background, error message, retry |
+| ready   | `EmailSummaryView`    | Solid border, header with metadata, body text |

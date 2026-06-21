@@ -15,14 +15,11 @@ export interface UseEmailSummarizerReturn {
 export function useEmailSummarizer(): UseEmailSummarizerReturn {
   const [state, setState] = useState<SummarizerState>({ status: "idle" });
 
-  const summarize = useCallback(
-    (email: NormalizedEmail, options: SummarizerOptions = {}) => {
-      setState({ status: "loading" });
-      const result = summarizeEmail(email, options);
-      setState(toReadyState(result));
-    },
-    [],
-  );
+  const summarize = useCallback((email: NormalizedEmail, options: SummarizerOptions = {}) => {
+    setState({ status: "loading" });
+    const result = summarizeEmail(email, options);
+    setState(toReadyState(result));
+  }, []);
 
   const reset = useCallback(() => {
     setState({ status: "idle" });

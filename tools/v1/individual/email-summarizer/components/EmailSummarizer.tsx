@@ -10,23 +10,14 @@ export interface EmailSummarizerProps {
   onRetry?: () => void;
 }
 
-export function EmailSummarizer({
-  state,
-  onRetry,
-}: EmailSummarizerProps): JSX.Element {
+export function EmailSummarizer({ state, onRetry }: EmailSummarizerProps): JSX.Element {
   switch (state.status) {
     case "idle":
       return <EmailSummaryEmpty />;
     case "loading":
       return <EmailSummaryLoading />;
     case "error":
-      return (
-        <EmailSummaryError
-          code={state.code}
-          message={state.message}
-          onRetry={onRetry}
-        />
-      );
+      return <EmailSummaryError code={state.code} message={state.message} onRetry={onRetry} />;
     case "ready":
       return <EmailSummaryView summary={state.summary} />;
   }

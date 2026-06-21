@@ -17,9 +17,7 @@ function formatTimestamp(iso: string): string {
   }
 }
 
-export function EmailSummaryView({
-  summary,
-}: EmailSummaryViewProps): JSX.Element {
+export function EmailSummaryView({ summary }: EmailSummaryViewProps): JSX.Element {
   const { summary: narrative, actionItems, source, sentenceCount, truncated } = summary;
 
   return (
@@ -31,11 +29,7 @@ export function EmailSummaryView({
           backgroundColor: "#f9f9fb",
         }}
       >
-        <h2
-          style={{ fontSize: "1rem", fontWeight: 600, margin: 0 }}
-        >
-          {source.subject}
-        </h2>
+        <h2 style={{ fontSize: "1rem", fontWeight: 600, margin: 0 }}>{source.subject}</h2>
         <dl
           style={{
             display: "flex",
@@ -59,10 +53,7 @@ export function EmailSummaryView({
       </header>
 
       <div style={{ padding: "1.25rem" }}>
-        <div
-          aria-live="polite"
-          style={{ lineHeight: 1.6, color: "#222", marginBottom: "1rem" }}
-        >
+        <div aria-live="polite" style={{ lineHeight: 1.6, color: "#222", marginBottom: "1rem" }}>
           {narrative}
         </div>
 
@@ -71,8 +62,8 @@ export function EmailSummaryView({
             aria-label="Summary truncated"
             style={{ fontSize: "0.8rem", color: "#888", fontStyle: "italic" }}
           >
-            Summary limited to {sentenceCount} sentence{sentenceCount !== 1 ? "s" : ""}.
-            View the original email for full context.
+            Summary limited to {sentenceCount} sentence{sentenceCount !== 1 ? "s" : ""}. View the
+            original email for full context.
           </p>
         )}
 
@@ -90,10 +81,7 @@ export function EmailSummaryView({
             </h3>
             <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
               {actionItems.map((item, i) => (
-                <li
-                  key={i}
-                  style={{ marginBottom: "0.4rem", lineHeight: 1.5, color: "#444" }}
-                >
+                <li key={i} style={{ marginBottom: "0.4rem", lineHeight: 1.5, color: "#444" }}>
                   {item}
                 </li>
               ))}
