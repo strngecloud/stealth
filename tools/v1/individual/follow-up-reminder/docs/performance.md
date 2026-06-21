@@ -26,12 +26,12 @@ nested scans over the full body.
 
 Defined in services/guards.ts as GUARD_LIMITS:
 
-| Limit               | Default | Purpose                             |
-| ------------------- | ------- | ----------------------------------- |
-| maxSubjectChars     | 500     | Reject runaway subject lines        |
-| maxBodyChars        | 50000   | Bound total memory per scan         |
-| maxBodyWords        | 10000   | Bound word-level signal passes      |
-| maxExistingReminders| 1000    | Bound dedup iteration per call      |
+| Limit                | Default | Purpose                        |
+| -------------------- | ------- | ------------------------------ |
+| maxSubjectChars      | 500     | Reject runaway subject lines   |
+| maxBodyChars         | 50000   | Bound total memory per scan    |
+| maxBodyWords         | 10000   | Bound word-level signal passes |
+| maxExistingReminders | 1000    | Bound dedup iteration per call |
 
 Inputs above these caps are rejected by safeBuildFollowUpReminder before the
 engine does any scanning work, so a hostile or accidental large payload cannot

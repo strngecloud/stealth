@@ -23,20 +23,20 @@ does not describe the wider mail application.
 
 ## Unsafe inputs and mitigations
 
-| Unsafe input                                        | Risk                                              | Mitigation                                                               |
-| --------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------ |
-| Oversized subject or body                           | Excessive CPU or memory, denial of service        | checkInputLimits rejects input above hard caps before the engine runs    |
-| Very high word count in body                        | Heavy work in date and signal scanning passes     | Word cap rejects early; engine scanning is bounded by MAX_SCAN_LENGTH    |
-| Control characters such as NUL or BEL               | Log injection, terminal escapes, corrupted output | sanitizeText strips ASCII control chars and keeps tab and newline        |
-| Zero-width or BOM characters                        | Hidden or smuggled content, spoofing              | sanitizeText strips zero-width and BOM characters                        |
-| Decomposed or duplicate unicode forms               | Inconsistent signal matching and output           | sanitizeText normalizes to NFC                                           |
-| Non-string or missing required fields               | Type confusion, runtime errors                    | validateInput rejects before the engine runs                             |
-| Invalid receivedAt (non-ISO, epoch, etc.)           | Broken date arithmetic, crashes                   | validateInput checks that the date string produces a valid Date          |
-| Empty or missing messageId                          | Duplicate detection bypass, data confusion        | validateInput rejects empty or missing messageId                         |
-| Massive existingReminders array                     | Excessive iteration, degraded dedup performance   | validateOptions clamps the array; checkOptionsLimits rejects oversized   |
-| Malformed existingReminder entries                  | Type errors in dedup logic                        | validateOptions filters out entries with missing or invalid fields       |
-| Ambiguous or contradictory date signals             | Incorrect due date assignment                     | Engine handles ambiguity by setting dueAt to null with a warning         |
-| Sequential calls with large state                   | Memory growth across invocations                  | Each call is stateless; callers must manage their own state              |
+| Unsafe input                              | Risk                                              | Mitigation                                                             |
+| ----------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------- |
+| Oversized subject or body                 | Excessive CPU or memory, denial of service        | checkInputLimits rejects input above hard caps before the engine runs  |
+| Very high word count in body              | Heavy work in date and signal scanning passes     | Word cap rejects early; engine scanning is bounded by MAX_SCAN_LENGTH  |
+| Control characters such as NUL or BEL     | Log injection, terminal escapes, corrupted output | sanitizeText strips ASCII control chars and keeps tab and newline      |
+| Zero-width or BOM characters              | Hidden or smuggled content, spoofing              | sanitizeText strips zero-width and BOM characters                      |
+| Decomposed or duplicate unicode forms     | Inconsistent signal matching and output           | sanitizeText normalizes to NFC                                         |
+| Non-string or missing required fields     | Type confusion, runtime errors                    | validateInput rejects before the engine runs                           |
+| Invalid receivedAt (non-ISO, epoch, etc.) | Broken date arithmetic, crashes                   | validateInput checks that the date string produces a valid Date        |
+| Empty or missing messageId                | Duplicate detection bypass, data confusion        | validateInput rejects empty or missing messageId                       |
+| Massive existingReminders array           | Excessive iteration, degraded dedup performance   | validateOptions clamps the array; checkOptionsLimits rejects oversized |
+| Malformed existingReminder entries        | Type errors in dedup logic                        | validateOptions filters out entries with missing or invalid fields     |
+| Ambiguous or contradictory date signals   | Incorrect due date assignment                     | Engine handles ambiguity by setting dueAt to null with a warning       |
+| Sequential calls with large state         | Memory growth across invocations                  | Each call is stateless; callers must manage their own state            |
 
 ## Explicitly out of scope
 

@@ -29,8 +29,4 @@ export {
   validateInput,
   validateOptions,
 } from "./services/guards";
-export type {
-  GuardErrorCode,
-  GuardIssue,
-  SafeBuildResult,
-} from "./services/guards";
+export type { GuardErrorCode, GuardIssue, SafeBuildResult } from "./services/guards";

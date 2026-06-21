@@ -30,10 +30,7 @@ export const GUARD_LIMITS = {
 } as const;
 
 /** Guard-specific error codes, distinct from engine-level warnings. */
-export type GuardErrorCode =
-  | "input-too-large"
-  | "invalid-input"
-  | "too-many-existing-reminders";
+export type GuardErrorCode = "input-too-large" | "invalid-input" | "too-many-existing-reminders";
 
 export interface GuardIssue {
   code: GuardErrorCode;
@@ -170,13 +167,13 @@ export function validateOptions(value: unknown): BuildReminderOptions {
   }
   if (Array.isArray(raw.existingReminders)) {
     const items = raw.existingReminders.slice(0, GUARD_LIMITS.maxExistingReminders);
-    result.existingReminders = items.filter(
-      (item: unknown): item is ExistingReminderKey => {
-        if (typeof item !== "object" || item === null) return false;
-        const e = item as Record<string, unknown>;
-        return typeof e.sourceMessageId === "string" && (e.dueAt === null || typeof e.dueAt === "string");
-      },
-    );
+    result.existingReminders = items.filter((item: unknown): item is ExistingReminderKey => {
+      if (typeof item !== "object" || item === null) return false;
+      const e = item as Record<string, unknown>;
+      return (
+        typeof e.sourceMessageId === "string" && (e.dueAt === null || typeof e.dueAt === "string")
+      );
+    });
   }
   return result;
 }
@@ -186,13 +183,13 @@ export function validateOptions(value: unknown): BuildReminderOptions {
  * existingReminders array does not exceed the hard cap.
  */
 export function checkOptionsLimits(options: BuildReminderOptions): GuardIssue | null {
-  if (options.existingReminders && options.existingReminders.length > GUARD_LIMITS.maxExistingReminders) {
+  if (
+    options.existingReminders &&
+    options.existingReminders.length > GUARD_LIMITS.maxExistingReminders
+  ) {
     return {
       code: "too-many-existing-reminders",
-      message:
-        "Existing reminders list exceeds " +
-        GUARD_LIMITS.maxExistingReminders +
-        " entries.",
+      message: "Existing reminders list exceeds " + GUARD_LIMITS.maxExistingReminders + " entries.",
     };
   }
   return null;
@@ -204,10 +201,7 @@ export function checkOptionsLimits(options: BuildReminderOptions): GuardIssue | 
  * engine. Malformed inputs are rejected before the engine runs any work, so
  * hostile or oversized payloads cannot trigger unbounded scanning.
  */
-export function safeBuildFollowUpReminder(
-  input: unknown,
-  options?: unknown,
-): SafeBuildResult {
+export function safeBuildFollowUpReminder(input: unknown, options?: unknown): SafeBuildResult {
   if (!validateInput(input)) {
     return {
       status: "error",

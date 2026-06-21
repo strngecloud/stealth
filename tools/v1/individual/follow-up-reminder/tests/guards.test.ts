@@ -96,21 +96,15 @@ describe("validateInput", () => {
   });
 
   it("rejects a non-string senderName when present", () => {
-    expect(
-      validateInput(validInput({ senderName: 99 as unknown as string })),
-    ).toBe(false);
+    expect(validateInput(validInput({ senderName: 99 as unknown as string }))).toBe(false);
   });
 
   it("rejects a non-string threadHint when present", () => {
-    expect(
-      validateInput(validInput({ threadHint: true as unknown as string })),
-    ).toBe(false);
+    expect(validateInput(validInput({ threadHint: true as unknown as string }))).toBe(false);
   });
 
   it("rejects a non-string timeZone when present", () => {
-    expect(
-      validateInput(validInput({ timeZone: [] as unknown as string })),
-    ).toBe(false);
+    expect(validateInput(validInput({ timeZone: [] as unknown as string }))).toBe(false);
   });
 });
 
@@ -127,9 +121,7 @@ describe("checkInputLimits", () => {
   });
 
   it("rejects an oversized body by characters", () => {
-    const issue = checkInputLimits(
-      validInput({ body: "x".repeat(GUARD_LIMITS.maxBodyChars + 1) }),
-    );
+    const issue = checkInputLimits(validInput({ body: "x".repeat(GUARD_LIMITS.maxBodyChars + 1) }));
     expect(issue?.code).toBe("input-too-large");
   });
 
